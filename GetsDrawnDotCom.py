@@ -179,6 +179,16 @@ dayzpath = (monzpath + '/' + dayz)
 rmgzdays = (dayzpath + '/reference')
 imgzdays = (dayzpath + '/art')
 
+repathz = ('/imgs/' + yearz + '/' + monthz + '/' + dayz + '/')
+
+# <codecell>
+
+imgzdays
+
+# <codecell>
+
+repathz
+
 # <codecell>
 
 def ospacheck():
@@ -340,6 +350,10 @@ apsize = []
 
 # <codecell>
 
+aptype = []
+
+# <codecell>
+
 basewidth = 600
 
 # <codecell>
@@ -348,6 +362,7 @@ for rmglis in os.listdir(rmgzdays):
     print rmglis
     print im.size
     apsize.append(im.size)
+    aptype.append(rmglis)
 
 # <codecell>
 
@@ -369,6 +384,24 @@ for numz in apsize:
 
 # <codecell>
 
+reliz = []
+
+# <codecell>
+
+for refls in os.listdir(rmgzdays):
+    #print rmgzdays + refls
+    reliz.append(repathz + refls)
+
+# <codecell>
+
+
+# <codecell>
+
+reliz
+
+# <codecell>
+
+aptype
 
 # <codecell>
 
@@ -390,19 +423,19 @@ with doc.head:
 
 with doc:
     with div(id='body').add(ol()):
-        for rdz in lisrgc:
-            h1(rdz.title)
+        for rdz in reliz:
+            #h1(rdz.title)
             #a(rdz.url)
-            if 'http://i.imgur.com' in rdz.url:
-                #print rdz.url
-                p(img(rdz.url, src='%s' % rdz.url))
+            #p(img(rdz, src='%s' % rdz))
+            p(img(rdz, src = rdz))
+
                 
             #print rdz.url
             #if '.jpg' in rdz.url:
             #    img(rdz.urlz)
             #else:
             #    a(rdz.urlz)
-            h1(str(rdz.author))
+            #h1(str(rdz.author))
             
             #li(img(i.lower(), src='%s' % i))
 
@@ -450,23 +483,32 @@ mkind.close()
 
 # <codecell>
 
-updatehtm = raw_input('Update index? Y/n')
-updateref = raw_input('Update reference? Y/n')
+#updatehtm = raw_input('Update index? Y/n')
+#updateref = raw_input('Update reference? Y/n')
 
-if 'y' or '' in updatehtm:
-    os.system('scp -r /home/wcmckee/getsdrawndotcom/index.html wcmckee@getsdrawn.com:/home/wcmckee/getsdrawndotcom/index.html')
-elif 'n' in updatehtm:
-    print 'not uploading'
-if 'y' or '' in updateref:
-    os.system('rsync -azP /home/wcmckee/getsdrawndotcom/ wcmckee@getsdrawn.com:/home/wcmckee/getsdrawndotcom/')
-
-# <codecell>
-
-os.system('scp -r /home/wcmckee/getsdrawndotcom/index.html wcmckee@getsdrawn.com:/home/wcmckee/getsdrawndotcom/index.html')
+#if 'y' or '' in updatehtm:
+#    os.system('scp -r /home/wcmckee/getsdrawndotcom/index.html wcmckee@getsdrawn.com:/home/wcmckee/getsdrawndotcom/index.html')
+#elif 'n' in updatehtm:
+#    print 'not uploading'
+#if 'y' or '' in updateref:
+#    os.system('rsync -azP /home/wcmckee/getsdrawndotcom/ wcmckee@getsdrawn.com:/home/wcmckee/getsdrawndotcom/')
 
 # <codecell>
 
-os.system('scp -r /home/wcmckee/getsdrawndotcom/style.css wcmckee@getsdrawn.com:/home/wcmckee/getsdrawndotcom/style.css')
+#os.system('scp -r /home/wcmckee/getsdrawndotcom/index.html wcmckee@getsdrawn.com:/home/wcmckee/getsdrawndotcom/index.html')
+
+# <codecell>
+
+#os.system('scp -r /home/wcmckee/getsdrawndotcom/style.css wcmckee@getsdrawn.com:/home/wcmckee/getsdrawndotcom/style.css')
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
 
 # <codecell>
 
