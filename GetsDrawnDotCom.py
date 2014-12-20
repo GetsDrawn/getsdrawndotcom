@@ -358,11 +358,37 @@ basewidth = 600
 
 # <codecell>
 
+imgdict = dict()
+
+# <codecell>
+
 for rmglis in os.listdir(rmgzdays):
     print rmglis
+    im = Image.open(rmglis)
     print im.size
+    imgdict.update({rmglis : im.size})
+    #im.thumbnail(size, Image.ANTIALIAS)
+    #im.save(file + ".thumbnail", "JPEG")
     apsize.append(im.size)
     aptype.append(rmglis)
+
+# <codecell>
+
+for imdva in imgdict.values():
+    #print imdva
+    for deva in imdva:
+        #print deva
+        if deva < 1000:
+            print 'omg less than 1000'
+        else:
+            print 'omg more than 1000'
+            #print deva / 2
+            print imgdict.values()
+            # Needs to update imgdict.values with this new number. Must halve height also.
+
+# <codecell>
+
+imgdict
 
 # <codecell>
 
@@ -428,6 +454,8 @@ with doc:
             #a(rdz.url)
             #p(img(rdz, src='%s' % rdz))
             p(img(rdz, src = rdz))
+            p(rdz)
+
 
                 
             #print rdz.url
