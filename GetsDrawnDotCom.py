@@ -28,6 +28,19 @@
 # 
 # More pandas
 # 
+# Saves reference images to imgs/year/month/day/reference/username-reference.png
+# 
+# Saves art images to imgs/year/month/day/art/username-line-bw-colour.png 
+# 
+# Creates index.html file with:
+# Title of site and logo: GetsDrawn
+# Last updated date and time. 
+# 
+# Path of image file /imgs/year/month/day/username-reference.png. 
+# (This needs changed to just their username).
+# 
+# Save off .meta data from reddit of each photo, saving it to reference folder.
+# username-yrmnthday.meta - contains info such as author, title, upvotes, downvotes.
 # 
 # Currently saves username-line-bw-colour.png to imgs folder. Instead get it to save to imgs/year/month/day/usernames.png.
 # Script checks the year/month/day and if folder isnt created, it creates it. If folder is there, exit. 
@@ -38,6 +51,8 @@
 # It opens these files up with PIL and checks the sizes. 
 # It needs to resize the images that are larger than 800px to 800px.
 # These images need to be linked in the index.html instead of the imgur altenatives. 
+# 
+# Extending the subreddits it gets data from to cycle though a list, run script though list of subreddits.
 
 # <codecell>
 
@@ -382,8 +397,8 @@ for imdva in imgdict.values():
             print 'omg less than 1000'
         else:
             print 'omg more than 1000'
-            #print deva / 2
-            print imgdict.values()
+            print deva / 2
+            #print imgdict.values
             # Needs to update imgdict.values with this new number. Must halve height also.
 
 # <codecell>
@@ -435,7 +450,7 @@ doc = dominate.document(title='GetsDrawn')
 
 with doc.head:
     link(rel='stylesheet', href='style.css')
-    script(type='text/javascript', src='script.js')
+    script(type ='text/javascript', src='script.js')
     
     with div():
         attr(cls='header')
@@ -474,10 +489,6 @@ with doc:
         a('https://reddit.com/r/redditgetsdrawn')
 
 #print doc
-
-# <codecell>
-
-gtdrndic
 
 # <codecell>
 
