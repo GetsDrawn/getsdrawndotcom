@@ -187,14 +187,17 @@ dayz = strftime("%d", gmtime())
 
 # <codecell>
 
-imgzdir = ('/home/wcmckee/getsdrawndotcom/imgs/')
+imgzdir = ('imgs/')
 yrzpat = (imgzdir + yearz)
 monzpath = (yrzpat + '/' + monthz)
 dayzpath = (monzpath + '/' + dayz)
 rmgzdays = (dayzpath + '/reference')
 imgzdays = (dayzpath + '/art')
 
-repathz = ('/imgs/' + yearz + '/' + monthz + '/' + dayz + '/')
+repathz = ('imgs/' + yearz + '/' + monthz + '/' + dayz + '/')
+
+# <codecell>
+
 
 # <codecell>
 
@@ -292,7 +295,7 @@ os.chdir(imgzdays)
 
 # <codecell>
 
-imgzdays
+rmgzdays
 
 # <codecell>
 
@@ -342,7 +345,7 @@ panz = opsinz.read()
 
 # <codecell>
 
-os.chdir(rmgzdays)
+os.chdir('/home/wcmckee/getsdrawndotcom/' + rmgzdays)
 
 # <codecell>
 
@@ -377,7 +380,7 @@ imgdict = dict()
 
 # <codecell>
 
-for rmglis in os.listdir(rmgzdays):
+for rmglis in os.listdir('/home/wcmckee/getsdrawndotcom/' + rmgzdays):
     print rmglis
     im = Image.open(rmglis)
     print im.size
@@ -403,10 +406,6 @@ for imdva in imgdict.values():
 
 # <codecell>
 
-imgdict
-
-# <codecell>
-
 #basewidth = 300
 #img = Image.open('somepic.jpg')
 #wpercent = (basewidth/float(img.size[0]))
@@ -429,9 +428,9 @@ reliz = []
 
 # <codecell>
 
-for refls in os.listdir(rmgzdays):
+for refls in os.listdir('/home/wcmckee/getsdrawndotcom/' + rmgzdays):
     #print rmgzdays + refls
-    reliz.append(repathz + refls)
+    reliz.append(rmgzdays + '/' + refls)
 
 # <codecell>
 
@@ -456,6 +455,7 @@ with doc.head:
         attr(cls='header')
         h1('GetsDrawn')
         p(img('imgs/getsdrawn-bw.png', src='imgs/getsdrawn-bw.png'))
+        #p(img('imgs/15/01/02/ReptileLover82-reference.png', src= 'imgs/15/01/02/ReptileLover82-reference.png'))
         h1('Updated ', strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime()))
         p(panz)
         p(bodycom)
@@ -468,6 +468,7 @@ with doc:
             #h1(rdz.title)
             #a(rdz.url)
             #p(img(rdz, src='%s' % rdz))
+            print rdz
             p(img(rdz, src = rdz))
             p(rdz)
 
