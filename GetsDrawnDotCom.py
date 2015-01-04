@@ -54,7 +54,11 @@
 # 
 # Extending the subreddits it gets data from to cycle though a list, run script though list of subreddits.
 # 
-# Browse certain days - Current day by default but option to scroll through other days
+# Browse certain days - Current day by default but option to scroll through other days.
+# 
+# Filters - male/female/animals/couples etc
+# 
+# 
 
 # <codecell>
 
@@ -201,6 +205,7 @@ repathz = ('imgs/' + yearz + '/' + monthz + '/' + dayz + '/')
 
 # <codecell>
 
+methzdays
 
 # <codecell>
 
@@ -278,7 +283,11 @@ else:
 
 # <codecell>
 
-os.listdir(metzdays)
+fullhom = ('/home/wcmckee/getsdrawndotcom/')
+
+# <codecell>
+
+os.listdir(fullhom + metzdays)
 
 # <codecell>
 
@@ -307,7 +316,11 @@ metzdays = (dayzpath + '/meta')
 
 # <codecell>
 
-pwd
+os.chdir(fullhom + metzdays)
+
+# <markdowncell>
+
+# I have it creating a meta folder and creating/writing username.meta files. Currently writes 'test' in each folder, needs to write username/image data. 
 
 # <codecell>
 
