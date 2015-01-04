@@ -53,6 +53,8 @@
 # These images need to be linked in the index.html instead of the imgur altenatives. 
 # 
 # Extending the subreddits it gets data from to cycle though a list, run script though list of subreddits.
+# 
+# Browse certain days - Current day by default but option to scroll through other days
 
 # <codecell>
 
@@ -193,6 +195,7 @@ monzpath = (yrzpat + '/' + monthz)
 dayzpath = (monzpath + '/' + dayz)
 rmgzdays = (dayzpath + '/reference')
 imgzdays = (dayzpath + '/art')
+metzdays = (dayzpath + '/meta')
 
 repathz = ('imgs/' + yearz + '/' + monthz + '/' + dayz + '/')
 
@@ -267,6 +270,18 @@ else:
 
 # <codecell>
 
+if os.path.isdir(metzdays)  == True:
+    print 'its true'
+else:
+    print 'its failse'
+    os.mkdir(metzdays)
+
+# <codecell>
+
+os.listdir(metzdays)
+
+# <codecell>
+
 #artlist
 
 # <codecell>
@@ -288,14 +303,18 @@ for lisr in lisrgc:
 
 rmgzdays = (dayzpath + '/reference')
 imgzdays = (dayzpath + '/art')
+metzdays = (dayzpath + '/meta')
 
 # <codecell>
 
-os.chdir(imgzdays)
+pwd
 
 # <codecell>
 
-rmgzdays
+for lisa in lisauth:
+    with open(lisa + '.meta', "w") as f:
+        f.write('test')
+    print lisa + '.meta'
 
 # <codecell>
 
@@ -415,6 +434,13 @@ for imdva in imgdict.values():
 
 # <codecell>
 
+os.chdir(metzdays)
+
+# <codecell>
+
+
+# <codecell>
+
 for numz in apsize:
     print numz[0]
     if numz[0] > 800:
@@ -434,9 +460,6 @@ for refls in os.listdir('/home/wcmckee/getsdrawndotcom/' + rmgzdays):
 
 # <codecell>
 
-
-# <codecell>
-
 reliz
 
 # <codecell>
@@ -445,11 +468,28 @@ aptype
 
 # <codecell>
 
+opad = open('/home/wcmckee/ad.html', 'r')
+
+# <codecell>
+
+opred = opad.read()
+
+# <codecell>
+
+str2 = opred.replace("\n", "")
+
+# <codecell>
+
+str2
+
+# <codecell>
+
 doc = dominate.document(title='GetsDrawn')
 
 with doc.head:
     link(rel='stylesheet', href='style.css')
     script(type ='text/javascript', src='script.js')
+    str(str2)
     
     with div():
         attr(cls='header')
@@ -535,7 +575,7 @@ mkind.close()
 
 # <codecell>
 
-#os.system('scp -r /home/wcmckee/getsdrawndotcom/index.html wcmckee@getsdrawn.com:/home/wcmckee/getsdrawndotcom/index.html')
+os.system('scp -r /home/wcmckee/getsdrawndotcom/index.html wcmckee@getsdrawn.com:/home/wcmckee/getsdrawndotcom/index.html')
 
 # <codecell>
 
