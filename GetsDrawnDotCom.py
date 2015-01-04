@@ -356,16 +356,16 @@ for lisr in lisrgc:
 
 # <codecell>
 
-for lisa in lisauth:
-    #print lisa + '-line.png'
-    im = Image.new("RGB", (512, 512), "white")
-    im.save(lisa + '-line.png')
-    im = Image.new("RGB", (512, 512), "white")
-    im.save(lisa + '-bw.png')
+#for lisa in lisauth:
+#    #print lisa + '-line.png'
+#    im = Image.new("RGB", (512, 512), "white")
+#    im.save(lisa + '-line.png')
+#    im = Image.new("RGB", (512, 512), "white")
+#    im.save(lisa + '-bw.png')
 
     #print lisa + '-bw.png'
-    im = Image.new("RGB", (512, 512), "white")
-    im.save(lisa + '-colour.png')
+#    im = Image.new("RGB", (512, 512), "white")
+#    im.save(lisa + '-colour.png')
 
     #print lisa + '-colour.png'
 
