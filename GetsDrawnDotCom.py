@@ -340,7 +340,8 @@ for lisr in lisrgc:
     lisauth.append(str(lisr.author))
     for osliz in os.listdir(fullhom + metzdays):
         with open(str(lisr.author) + '.meta', "w") as f:
-            f.write(str(lisr.title))
+            rstrin = lisr.title.encode('ascii', 'ignore').decode('ascii')
+            f.write(rstrin)
 
 # <markdowncell>
 
