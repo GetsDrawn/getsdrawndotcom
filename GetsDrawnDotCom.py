@@ -325,10 +325,6 @@ httpad = ('http://getsdrawn.com/imgs')
 
 # <codecell>
 
-pwd
-
-# <codecell>
-
 rmgzdays = (dayzpath + '/reference')
 imgzdays = (dayzpath + '/art')
 metzdays = (dayzpath + '/meta')
@@ -354,9 +350,9 @@ for lisr in lisrgc:
 
 #os.listdir(dayzpath)
 
-# <codecell>
+# <markdowncell>
 
-Instead of creating these 
+# Instead of creating these white images, why not download the art replies of the reference photo.
 
 # <codecell>
 
@@ -379,7 +375,7 @@ os.listdir('/home/wcmckee/getsdrawndotcom/imgs')
 
 # <codecell>
 
-lisauth
+#lisauth
 
 # <markdowncell>
 
@@ -389,7 +385,7 @@ lisauth
 
 # <codecell>
 
-lisr.author
+#lisr.author
 
 # <codecell>
 
@@ -438,9 +434,9 @@ imgdict = dict()
 # <codecell>
 
 for rmglis in os.listdir('/home/wcmckee/getsdrawndotcom/' + rmgzdays):
-    print rmglis
+    #print rmglis
     im = Image.open(rmglis)
-    print im.size
+    #print im.size
     imgdict.update({rmglis : im.size})
     #im.thumbnail(size, Image.ANTIALIAS)
     #im.save(file + ".thumbnail", "JPEG")
@@ -449,15 +445,15 @@ for rmglis in os.listdir('/home/wcmckee/getsdrawndotcom/' + rmgzdays):
 
 # <codecell>
 
-for imdva in imgdict.values():
+#for imdva in imgdict.values():
     #print imdva
-    for deva in imdva:
+    #for deva in imdva:
         #print deva
-        if deva < 1000:
-            print 'omg less than 1000'
-        else:
-            print 'omg more than 1000'
-            print deva / 2
+     #   if deva < 1000:
+      #      print 'omg less than 1000'
+       # else:
+        #    print 'omg more than 1000'
+         #   print deva / 2
             #print imgdict.values
             # Needs to update imgdict.values with this new number. Must halve height also.
 
@@ -472,19 +468,19 @@ for imdva in imgdict.values():
 
 # <codecell>
 
-os.chdir(metzdays)
+#os.chdir(metzdays)
 
 # <codecell>
 
 
 # <codecell>
 
-for numz in apsize:
-    print numz[0]
-    if numz[0] > 800:
-        print ('greater than 800')
-    else:
-        print ('less than 800!')
+#for numz in apsize:
+#    print numz[0]
+ #   if numz[0] > 800:
+#        print ('greater than 800')
+#    else:
+#        print ('less than 800!')
 
 # <codecell>
 
@@ -546,7 +542,7 @@ with doc:
             #h1(rdz.title)
             #a(rdz.url)
             #p(img(rdz, src='%s' % rdz))
-            print rdz
+            #print rdz
             p(img(rdz, src = rdz))
             p(rdz)
 
