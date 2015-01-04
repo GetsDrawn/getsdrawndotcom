@@ -13,7 +13,11 @@
 # 
 # The first script for rgdsnatch was written after I got banned from posting my artwork on /r/RedditGetsDrawn. The plan was to create a new site that displayed stuff from /r/RedditGetsDrawn. 
 # 
-# Currently it only displays the most recent 25 items on redditgetsdrawn.
+# Currently it only displays the most recent 25 items on redditgetsdrawn. The script looks at the newest 25 reference photos on RedditGetsDrawn. It focuses only on jpeg/png images and ignores and links to none .jpg or .png ending files. 
+# It is needed to instead of ignoring them files - get the image or images in some cases, from the link.
+# The photos are always submitted from imgur.
+# Still filter out the i.imgur files, but take the links and filter them through a python imgur module returning the .jpeg or .png files. 
+# 
 # 
 # This is moving forward from rgdsnatch.py because I am stuck on it.  
 # 
@@ -41,6 +45,16 @@
 # 
 # Save off .meta data from reddit of each photo, saving it to reference folder.
 # username-yrmnthday.meta - contains info such as author, title, upvotes, downvotes.
+# Currently saving .meta files to a meta folder - along side art and reference. 
+# 
+# Folder sorting system of files. 
+# websitename/index.html-style.css-imgs/YEAR(15)-MONTH(2)-DAY(4)/art-reference-meta
+# Inside art folder
+# Currently it generates USERNAME-line/bw/colour.png 50/50 white files. Maybe should be getting art replies from reddit?
+# 
+# Inside reference folder
+# Reference fold is working decent. 
+# it creates USERNAME-reference.png / jpeg files. 
 # 
 # Currently saves username-line-bw-colour.png to imgs folder. Instead get it to save to imgs/year/month/day/usernames.png.
 # Script checks the year/month/day and if folder isnt created, it creates it. If folder is there, exit. 
@@ -52,11 +66,18 @@
 # It needs to resize the images that are larger than 800px to 800px.
 # These images need to be linked in the index.html instead of the imgur altenatives. 
 # 
+# Instead of the jpeg/png files on imgur they are downloaded to the server with this script. 
+# 
+# Filter through as images are getting downloaded and if it has been less than certain time or if the image has been submitted before 
+# 
 # Extending the subreddits it gets data from to cycle though a list, run script though list of subreddits.
 # 
 # Browse certain days - Current day by default but option to scroll through other days.
 # 
 # Filters - male/female/animals/couples etc
+# Function that returns only male portraits. 
+# tags to add to photos. 
+# Filter images with tags
 # 
 # 
 
@@ -205,7 +226,7 @@ repathz = ('imgs/' + yearz + '/' + monthz + '/' + dayz + '/')
 
 # <codecell>
 
-methzdays
+metzdays
 
 # <codecell>
 
@@ -304,9 +325,7 @@ httpad = ('http://getsdrawn.com/imgs')
 
 # <codecell>
 
-for lisr in lisrgc:
-    gtdrndic.update({'title': lisr.title})
-    lisauth.append(str(lisr.author))
+pwd
 
 # <codecell>
 
@@ -318,20 +337,26 @@ metzdays = (dayzpath + '/meta')
 
 os.chdir(fullhom + metzdays)
 
-# <markdowncell>
-
-# I have it creating a meta folder and creating/writing username.meta files. Currently writes 'test' in each folder, needs to write username/image data. 
-
 # <codecell>
 
-for lisa in lisauth:
-    with open(lisa + '.meta', "w") as f:
-        f.write('test')
-    print lisa + '.meta'
+for lisr in lisrgc:
+    gtdrndic.update({'title': lisr.title})
+    lisauth.append(str(lisr.author))
+    for osliz in os.listdir(fullhom + metzdays):
+        with open(str(lisr.author) + '.meta', "w") as f:
+            f.write(str(lisr.title))
+
+# <markdowncell>
+
+# I have it creating a meta folder and creating/writing username.meta files. It wrote 'test' in each folder, but now it writes the photo author title of post.. the username/image data. 
 
 # <codecell>
 
 #os.listdir(dayzpath)
+
+# <codecell>
+
+Instead of creating these 
 
 # <codecell>
 
