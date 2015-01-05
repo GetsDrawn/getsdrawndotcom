@@ -273,50 +273,6 @@ for liz in lizmon:
 
 # <codecell>
 
-if os.path.isdir(monzpath) == True:
-    print 'its true'
-else:
-    print 'its false'
-    os.mkdir(monzpath)
-
-#os.mkdir(monzpath)
-
-# <codecell>
-
-if os.path.isdir(dayzpath) == True:
-    print 'its true'
-else:
-    print 'its false'
-    os.mkdir(dayzpath)
-
-#os.mkdir(dayzpath)
-
-# <codecell>
-
-if os.path.isdir(imgzdays) == True:
-    print 'its true'
-else:
-    print 'its false'
-    os.mkdir(imgzdays)
-
-# <codecell>
-
-if os.path.isdir(rmgzdays) == True:
-    print 'its true'
-else:
-    print 'its false'
-    os.mkdir(rmgzdays)
-
-# <codecell>
-
-if os.path.isdir(metzdays)  == True:
-    print 'its true'
-else:
-    print 'its failse'
-    os.mkdir(metzdays)
-
-# <codecell>
-
 fullhom = ('/home/wcmckee/getsdrawndotcom/')
 
 # <codecell>
