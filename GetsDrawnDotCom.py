@@ -211,7 +211,6 @@ dayz = strftime("%d", gmtime())
 
 #strftime("%y %m %d", gmtime())
 
-
 # <codecell>
 
 imgzdir = ('imgs/')
@@ -274,10 +273,6 @@ for liz in lizmon:
 # <codecell>
 
 fullhom = ('/home/wcmckee/getsdrawndotcom/')
-
-# <codecell>
-
-os.listdir(fullhom + metzdays)
 
 # <codecell>
 
@@ -423,6 +418,26 @@ os.chdir('/home/wcmckee/getsdrawndotcom/' + rmgzdays)
 
 # <codecell>
 
+from imgurpython import ImgurClient
+
+# <codecell>
+
+opps = open('/home/wcmckee/ps.txt', 'r')
+opzs = open('/home/wcmckee/ps2.txt', 'r')
+oprd = opps.read()
+opzrd = opzs.read()
+
+# <codecell>
+
+client_id = 'YOUR CLIENT ID'
+client_secret = 'YOUR CLIENT SECRET'
+
+client = ImgurClient(oprd, opzrd)
+
+# Example request
+items = client.gallery()
+for item in items:
+    print(item.link)
 
 # <codecell>
 
