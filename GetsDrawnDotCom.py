@@ -374,6 +374,7 @@ for lisr in lisrgc:
     for osliz in os.listdir(fullhom + metzdays):
         with open(str(lisr.author) + '.meta', "w") as f:
             rstrin = lisr.title.encode('ascii', 'ignore').decode('ascii')
+            print matdict
             #metadict = dict()
             #for lisz in lisrgc:
             #    metadict.update({'up': lisz.ups})
@@ -384,7 +385,7 @@ for lisr in lisrgc:
 
 # <codecell>
 
-metadict
+matdict
 
 # <markdowncell>
 
@@ -443,6 +444,32 @@ panz = opsinz.read()
 # <codecell>
 
 os.chdir('/home/wcmckee/getsdrawndotcom/' + rmgzdays)
+
+# <markdowncell>
+
+# Filter the non jpeg/png links. Need to perform request or imgur api to get the jpeg/png files from the link. Hey maybe bs4?
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+for rdz in lisrgc:
+    if 'http://imgur.com' in rdz.url:
+        print rdz.url
+        reimg = requests.get(rdz.url)
+        retxt = reimg.text
+        souptxt = BeautifulSoup(retxt)
+        soupurz = souptxt.findAll('img')
+        for soupuz in soupurz:
+            imgurl = soupuz['src']
+            print imgurl
 
 # <codecell>
 
