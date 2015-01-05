@@ -437,7 +437,7 @@ client = ImgurClient(oprd, opzrd)
 #    print(item.link)
     
 
-itz = client.get_album_images()
+#itz = client.get_album_images()
 
 # <codecell>
 
