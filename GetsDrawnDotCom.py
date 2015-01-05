@@ -260,6 +260,19 @@ ospacheck()
 
 # <codecell>
 
+lizmon = ['monzpath', 'dayzpath', 'imgzdays', 'rmgzdays', 'metzdays']
+
+# <codecell>
+
+for liz in lizmon:
+    if os.path.isdir(liz) == True:
+        print 'its true'
+    else:
+        print 'its false'
+        os.mkdir(liz)
+
+# <codecell>
+
 if os.path.isdir(monzpath) == True:
     print 'its true'
 else:
@@ -374,7 +387,7 @@ for lisr in lisrgc:
     for osliz in os.listdir(fullhom + metzdays):
         with open(str(lisr.author) + '.meta', "w") as f:
             rstrin = lisr.title.encode('ascii', 'ignore').decode('ascii')
-            print matdict
+            #print matdict
             #metadict = dict()
             #for lisz in lisrgc:
             #    metadict.update({'up': lisz.ups})
@@ -385,7 +398,7 @@ for lisr in lisrgc:
 
 # <codecell>
 
-matdict
+#matdict
 
 # <markdowncell>
 
