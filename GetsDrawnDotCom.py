@@ -457,19 +457,35 @@ os.chdir('/home/wcmckee/getsdrawndotcom/' + rmgzdays)
 
 # <codecell>
 
+linklis = []
 
 # <codecell>
 
-for rdz in lisrgc:
-    if 'http://imgur.com' in rdz.url:
-        print rdz.url
-        reimg = requests.get(rdz.url)
-        retxt = reimg.text
-        souptxt = BeautifulSoup(retxt)
-        soupurz = souptxt.findAll('img')
-        for soupuz in soupurz:
-            imgurl = soupuz['src']
-            print imgurl
+#for rdz in lisrgc:
+#    if 'http://imgur.com' in rdz.url:
+#        #print rdz.url
+#        reimg = requests.get(rdz.url)
+##        retxt = reimg.text
+#        souptxt = BeautifulSoup(''.join(retxt))
+#        soupurz = souptxt.findAll('img')
+#        for soupuz in soupurz:
+#            imgurl = soupuz['src']
+#            print imgurl
+#            linklis.append(imgurl)
+            
+            #try:
+            #    imzdata = requests.get(imgurl)
+
+# <codecell>
+
+linklis
+
+# <codecell>
+
+if '.jpg' in linklis:
+    print 'yes'
+else:
+    print 'no'
 
 # <codecell>
 
