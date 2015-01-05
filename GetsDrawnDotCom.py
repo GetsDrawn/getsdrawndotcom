@@ -604,7 +604,7 @@ with doc:
     with div():
         attr(cls='body')
         p('GetsDrawn is open source')
-        a('https://github.com/wcmckee/wcmckee')
+        a('https://github.com/getsdrawn/getsdrawndotcom')
         a('https://reddit.com/r/redditgetsdrawn')
 
 #print doc
