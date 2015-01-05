@@ -429,25 +429,32 @@ opzrd = opzs.read()
 
 # <codecell>
 
-client_id = 'YOUR CLIENT ID'
-client_secret = 'YOUR CLIENT SECRET'
-
 client = ImgurClient(oprd, opzrd)
 
 # Example request
-items = client.gallery()
-for item in items:
-    print(item.link)
+#items = client.gallery()
+#for item in items:
+#    print(item.link)
+    
+
+itz = client.get_album_images()
 
 # <codecell>
 
 linklis = []
 
+# <markdowncell>
+
+# I need to get the image ids from each url. Strip the http://imgur.com/ from the string. The gallery id is the random characters after. if it's an album a is added. if multi imgs then , is used to seprate. 
+# 
+# Doesnt currently work. 
+
 # <codecell>
 
-#for rdz in lisrgc:
-#    if 'http://imgur.com' in rdz.url:
-#        #print rdz.url
+for rdz in lisrgc:
+    if 'http://imgur.com' in rdz.url:
+        print rdz.url
+        #itz = client.get_album_images()
 #        reimg = requests.get(rdz.url)
 ##        retxt = reimg.text
 #        souptxt = BeautifulSoup(''.join(retxt))
