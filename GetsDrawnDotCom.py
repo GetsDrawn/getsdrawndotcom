@@ -335,17 +335,60 @@ os.chdir(fullhom + metzdays)
 
 # <codecell>
 
+metadict = dict()
+
+# <markdowncell>
+
+# if i save the data to the file how am i going to get it to update as the post is archieved. Such as up and down votes. 
+
+# <codecell>
+
+for lisz in lisrgc:
+    metadict.update({'up': lisz.ups})
+    metadict.update({'down': lisz.downs})
+    metadict.update({'title': lisz.title})
+    metadict.update({'created': lisz.created})
+    #metadict.update({'createdutc': lisz.created_utc})
+    #print lisz.ups
+    #print lisz.downs
+    #print lisz.created
+    #print lisz.comments
+
+# <codecell>
+
+metadict
+
+# <markdowncell>
+
+# Need to save json object.
+# 
+# Dict is created but it isnt saving. Looping through lisrgc twice, should only require the one loop.
+# 
+# Cycle through lisr and append to dict/concert to json, and also cycle through lisr.author meta folders saving the json that was created. 
+
+# <codecell>
+
 for lisr in lisrgc:
     gtdrndic.update({'title': lisr.title})
     lisauth.append(str(lisr.author))
     for osliz in os.listdir(fullhom + metzdays):
         with open(str(lisr.author) + '.meta', "w") as f:
             rstrin = lisr.title.encode('ascii', 'ignore').decode('ascii')
+            #metadict = dict()
+            #for lisz in lisrgc:
+            #    metadict.update({'up': lisz.ups})
+            #    metadict.update({'down': lisz.downs})
+            #    metadict.update({'title': lisz.title})
+            #    metadict.update({'created': lisz.created})
             f.write(rstrin)
+
+# <codecell>
+
+metadict
 
 # <markdowncell>
 
-# I have it creating a meta folder and creating/writing username.meta files. It wrote 'test' in each folder, but now it writes the photo author title of post.. the username/image data. 
+# I have it creating a meta folder and creating/writing username.meta files. It wrote 'test' in each folder, but now it writes the photo author title of post.. the username/image data. It should be writing more than author title - maybe upvotes/downvotes, subreddit, time published etc.
 
 # <codecell>
 
