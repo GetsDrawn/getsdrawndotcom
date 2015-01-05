@@ -441,6 +441,26 @@ itz = client.get_album_images()
 
 # <codecell>
 
+galim = client.get_image('SBaV275')
+
+# <codecell>
+
+galim.size
+
+# <codecell>
+
+gelim = client.get_album_images('LTDJ9')
+
+# <codecell>
+
+gelim
+
+# <codecell>
+
+from urlparse import urlparse
+
+# <codecell>
+
 linklis = []
 
 # <markdowncell>
@@ -454,6 +474,11 @@ linklis = []
 for rdz in lisrgc:
     if 'http://imgur.com' in rdz.url:
         print rdz.url
+        parsed = urlparse(rdz.url)
+        print parsed.path.strip('a/')
+        #for pared in parsed.path:
+        #    print pared.strip('/')
+
         #itz = client.get_album_images()
 #        reimg = requests.get(rdz.url)
 ##        retxt = reimg.text
