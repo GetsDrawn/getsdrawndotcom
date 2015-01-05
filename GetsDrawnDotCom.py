@@ -468,18 +468,25 @@ linklis = []
 # I need to get the image ids from each url. Strip the http://imgur.com/ from the string. The gallery id is the random characters after. if it's an album a is added. if multi imgs then , is used to seprate. 
 # 
 # Doesnt currently work. 
+# 
+# Having problems with mixed /a/etwet and wetfwet urls. Using .strip('/') to remove forward slash in front of path. 
+
+# <codecell>
+
+pathlis = []
 
 # <codecell>
 
 for rdz in lisrgc:
-    if 'http://imgur.com' in rdz.url:
+    if 'http://imgur.com/' in rdz.url:
         print rdz.url
         parsed = urlparse(rdz.url)
-        print parsed.path.strip('a/')
+        print parsed.path.strip('/')
+        pathlis.append(parsed.path.strip('/'))
         #for pared in parsed.path:
         #    print pared.strip('/')
-
-        #itz = client.get_album_images()
+        #itgar = client.gallery_item(parsed.path.strip('/'))
+        #itz = client.get_album_images(parsed.path.strip('a/'))
 #        reimg = requests.get(rdz.url)
 ##        retxt = reimg.text
 #        souptxt = BeautifulSoup(''.join(retxt))
@@ -491,6 +498,35 @@ for rdz in lisrgc:
             
             #try:
             #    imzdata = requests.get(imgurl)
+
+# <codecell>
+
+pathlis
+
+# <codecell>
+
+noalis = []
+
+# <codecell>
+
+for pathl in pathlis:
+    if 'a/' in pathl:
+        print 'a found'
+    else:
+        noalis.append(pathl)
+
+# <codecell>
+
+#if 'a/' in pathlis:
+#    print 'a found'
+#else:
+#    noalis.append(pathlis)
+
+# <codecell>
+
+for noaz in noalis:
+    print noaz
+    #itgar = client.gallery_item()
 
 # <codecell>
 
