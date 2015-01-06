@@ -13,7 +13,7 @@
 # 
 # The first script for rgdsnatch was written after I got banned from posting my artwork on /r/RedditGetsDrawn. The plan was to create a new site that displayed stuff from /r/RedditGetsDrawn. 
 # 
-# Currently it only displays the most recent 25 items on redditgetsdrawn. The script looks at the newest 25 reference photos on RedditGetsDrawn. It focuses only on jpeg/png images and ignores and links to none .jpg or .png ending files. 
+# Currently it gets the most recent 25 items on redditgetsdrawn, and saves it to a folder.  The script looks at the newest 25 reference photos on RedditGetsDrawn. It focuses only on jpeg/png images and ignores and links to none .jpg or .png ending files. 
 # It is needed to instead of ignoring them files - get the image or images in some cases, from the link.
 # The photos are always submitted from imgur.
 # Still filter out the i.imgur files, but take the links and filter them through a python imgur module returning the .jpeg or .png files. 
@@ -105,7 +105,7 @@ import shutil
 
 # <codecell>
 
-gtsdrndir = ('/home/wcmckee/getsdrawndotcom')
+gtsdrndir = ('/home/wcmckee/getsdrawndotcom/')
 
 # <codecell>
 
@@ -225,7 +225,7 @@ repathz = ('imgs/' + yearz + '/' + monthz + '/' + dayz + '/')
 
 # <codecell>
 
-metzdays
+repathz
 
 # <codecell>
 
@@ -263,12 +263,54 @@ lizmon = ['monzpath', 'dayzpath', 'imgzdays', 'rmgzdays', 'metzdays']
 
 # <codecell>
 
-for liz in lizmon:
-    if os.path.isdir(liz) == True:
-        print 'its true'
-    else:
-        print 'its false'
-        os.mkdir(liz)
+os.chdir('/home/wcmckee/getsdrawndotcom/imgs/')
+
+# <markdowncell>
+
+# Something is wrong with the script and it's no longer creating these dir in the correct folder. How did this break?
+
+# <codecell>
+
+if os.path.isdir(monzpath) == True:
+    print 'its true'
+else:
+    print 'its false'
+    os.mkdir(monzpath)
+
+# <codecell>
+
+if os.path.isdir(dayzpath) == True:
+    print 'its true'
+else:
+    print 'its false'
+    os.mkdir(dayzpath)
+
+if os.path.isdir(imgzdays) == True:
+    print 'its true'
+else:
+    print 'its false'
+    os.mkdir(imgzdays)
+    
+if os.path.isdir(rmgzdays) == True:
+    print 'its true'
+else:
+    print 'its false'
+    os.mkdir(rmgzdays)
+    
+if os.path.isdir(metzdays) == True:
+    print 'its true'
+else:
+    print 'its false'
+    os.mkdir(metzdays)
+
+# <codecell>
+
+#for liz in lizmon:
+#    if os.path.isdir(liz) == True:
+##        print 'its true'
+ #   else:
+#        print 'its false'
+#        os.mkdir(liz)
 
 # <codecell>
 
@@ -295,7 +337,7 @@ metzdays = (dayzpath + '/meta')
 
 # <codecell>
 
-os.chdir(fullhom + metzdays)
+os.chdir(metzdays)
 
 # <codecell>
 
@@ -335,7 +377,7 @@ metadict
 for lisr in lisrgc:
     gtdrndic.update({'title': lisr.title})
     lisauth.append(str(lisr.author))
-    for osliz in os.listdir(fullhom + metzdays):
+    for osliz in os.listdir(metzdays):
         with open(str(lisr.author) + '.meta', "w") as f:
             rstrin = lisr.title.encode('ascii', 'ignore').decode('ascii')
             #print matdict
@@ -407,7 +449,7 @@ panz = opsinz.read()
 
 # <codecell>
 
-os.chdir('/home/wcmckee/getsdrawndotcom/' + rmgzdays)
+os.chdir(rmgzdays)
 
 # <markdowncell>
 
