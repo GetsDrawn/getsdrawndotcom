@@ -268,6 +268,13 @@ os.chdir('/home/wcmckee/getsdrawndotcom/imgs/')
 # <markdowncell>
 
 # Something is wrong with the script and it's no longer creating these dir in the correct folder. How did this break?
+# Fixed that but problems with it
+# Getting error:
+# OSError: [Errno 17] File exists: '/home/wcmckee/getsdrawndotcom/imgs/15/01'
+# If the file exists it should be skipping over it, thats why it has the os.path.isdir == True:
+#  print its true
+# else 
+#  print its false, and make the dir
 
 # <codecell>
 
@@ -275,7 +282,7 @@ if os.path.isdir(monzpath) == True:
     print 'its true'
 else:
     print 'its false'
-    os.mkdir(monzpath)
+    #os.mkdir('/home/wcmckee/getsdrawndotcom/' + monzpath)
 
 # <codecell>
 
@@ -614,7 +621,7 @@ imgdict = dict()
 
 # <codecell>
 
-for rmglis in os.listdir('/home/wcmckee/getsdrawndotcom/' + rmgzdays):
+for rmglis in os.listdir(rmgzdays):
     #print rmglis
     im = Image.open(rmglis)
     #print im.size
@@ -669,7 +676,7 @@ reliz = []
 
 # <codecell>
 
-for refls in os.listdir('/home/wcmckee/getsdrawndotcom/' + rmgzdays):
+for refls in os.listdir(rmgzdays):
     #print rmgzdays + refls
     reliz.append(rmgzdays + '/' + refls)
 
