@@ -1,11 +1,7 @@
-# -*- coding: utf-8 -*-
-# <nbformat>3.0</nbformat>
 
-# <markdowncell>
+# coding: utf-8
 
 # <h1>GetsDrawn DotCom</h1>
-
-# <markdowncell>
 
 # This is a python script to generate the website GetsDrawn. It takes data from /r/RedditGetsDrawn and makes something awesome.
 # 
@@ -80,8 +76,11 @@
 # Filter images with tags
 # 
 # 
+# 
 
-# <codecell>
+# Work on 
+
+# In[2]:
 
 import os 
 import requests
@@ -103,53 +102,66 @@ from pprint import pprint
 #import pyttsx
 import shutil
 
-# <codecell>
+import arrow
+
+
+# In[3]:
 
 gtsdrndir = ('/home/wcmckee/getsdrawndotcom')
 
-# <codecell>
+
+# In[4]:
 
 os.chdir(gtsdrndir)
 
-# <codecell>
+
+# In[5]:
 
 r = praw.Reddit(user_agent='getsdrawndotcom')
 
-# <codecell>
+
+# In[6]:
 
 #getmin = r.get_redditor('itwillbemine')
 
-# <codecell>
+
+# In[7]:
 
 #mincom = getmin.get_comments()
 
-# <codecell>
+
+# In[8]:
 
 #engine = pyttsx.init()
 
 #engine.say('The quick brown fox jumped over the lazy dog.')
 #engine.runAndWait()
 
-# <codecell>
+
+# In[9]:
 
 #shtweet = []
 
-# <codecell>
+
+# In[10]:
 
 #for mi in mincom:
 #    print mi
 #    shtweet.append(mi)
 
-# <codecell>
+
+# In[11]:
 
 bodycom = []
 bodyicv = dict()
 
-# <codecell>
+
+# In[12]:
 
 #beginz = pyttsx.init()
 
-# <codecell>
+
+# In[13]:
 
 #for shtz in shtweet:
 #    print shtz.downs
@@ -163,46 +175,56 @@ bodyicv = dict()
 #    bodycom.append(shtz.body)
     #bodyic
 
-# <codecell>
+
+# In[14]:
 
 #bodycom 
 
-# <codecell>
 
-getnewr = r.get_subreddit('redditgetsdrawn')
+# In[15]:
 
-# <codecell>
+getnewr = r.get_subreddit('redditgetsdrawnbadly')
+
+
+# In[16]:
 
 rdnew = getnewr.get_new()
 
-# <codecell>
+
+# In[17]:
 
 lisrgc = []
 lisauth = []
 
-# <codecell>
+
+# In[18]:
 
 for uz in rdnew:
     #print uz
     lisrgc.append(uz)
 
-# <codecell>
+
+# In[19]:
 
 gtdrndic = dict()
 
-# <codecell>
+
+# In[20]:
 
 imgdir = ('/home/wcmckee/getsdrawndotcom/imgs')
 
-# <codecell>
+
+# In[21]:
 
 artlist = os.listdir(imgdir)
 
-# <codecell>
+
+# In[22]:
 
 from time import time
 
-# <codecell>
+
+# In[23]:
 
 yearz = strftime("%y", gmtime())
 monthz = strftime("%m", gmtime())
@@ -212,7 +234,8 @@ dayz = strftime("%d", gmtime())
 #strftime("%y %m %d", gmtime())
 
 
-# <codecell>
+
+# In[24]:
 
 imgzdir = ('imgs/')
 yrzpat = (imgzdir + yearz)
@@ -224,19 +247,23 @@ metzdays = (dayzpath + '/meta')
 
 repathz = ('imgs/' + yearz + '/' + monthz + '/' + dayz + '/')
 
-# <codecell>
+
+# In[25]:
 
 metzdays
 
-# <codecell>
+
+# In[26]:
 
 imgzdays
 
-# <codecell>
+
+# In[27]:
 
 repathz
 
-# <codecell>
+
+# In[28]:
 
 def ospacheck():
     if os.path.isdir(imgzdir + yearz) == True:
@@ -246,11 +273,13 @@ def ospacheck():
         os.mkdir(imgzdir + yearz)
     
 
-# <codecell>
+
+# In[29]:
 
 ospacheck()
 
-# <codecell>
+
+# In[30]:
 
 #if os.path.isdir(imgzdir + yearz) == True:
 #    print 'its true'
@@ -258,7 +287,8 @@ ospacheck()
 #    print 'its false'
 #    os.mkdir(imgzdir + yearz)
 
-# <codecell>
+
+# In[31]:
 
 if os.path.isdir(monzpath) == True:
     print 'its true'
@@ -268,7 +298,8 @@ else:
 
 #os.mkdir(monzpath)
 
-# <codecell>
+
+# In[32]:
 
 if os.path.isdir(dayzpath) == True:
     print 'its true'
@@ -278,7 +309,8 @@ else:
 
 #os.mkdir(dayzpath)
 
-# <codecell>
+
+# In[33]:
 
 if os.path.isdir(imgzdays) == True:
     print 'its true'
@@ -286,7 +318,8 @@ else:
     print 'its false'
     os.mkdir(imgzdays)
 
-# <codecell>
+
+# In[34]:
 
 if os.path.isdir(rmgzdays) == True:
     print 'its true'
@@ -294,7 +327,8 @@ else:
     print 'its false'
     os.mkdir(rmgzdays)
 
-# <codecell>
+
+# In[35]:
 
 if os.path.isdir(metzdays)  == True:
     print 'its true'
@@ -302,38 +336,46 @@ else:
     print 'its failse'
     os.mkdir(metzdays)
 
-# <codecell>
+
+# In[36]:
 
 fullhom = ('/home/wcmckee/getsdrawndotcom/')
 
-# <codecell>
+
+# In[37]:
 
 os.listdir(fullhom + metzdays)
 
-# <codecell>
+
+# In[38]:
 
 #artlist
 
-# <codecell>
+
+# In[39]:
 
 httpad = ('http://getsdrawn.com/imgs')
 
-# <codecell>
+
+# In[40]:
 
 #im = Image.new("RGB", (512, 512), "white")
 #im.save(file + ".thumbnail", "JPEG")
 
-# <codecell>
+
+# In[41]:
 
 rmgzdays = (dayzpath + '/reference')
 imgzdays = (dayzpath + '/art')
 metzdays = (dayzpath + '/meta')
 
-# <codecell>
+
+# In[42]:
 
 os.chdir(fullhom + metzdays)
 
-# <codecell>
+
+# In[43]:
 
 for lisr in lisrgc:
     gtdrndic.update({'title': lisr.title})
@@ -343,19 +385,17 @@ for lisr in lisrgc:
             rstrin = lisr.title.encode('ascii', 'ignore').decode('ascii')
             f.write(rstrin)
 
-# <markdowncell>
 
 # I have it creating a meta folder and creating/writing username.meta files. It wrote 'test' in each folder, but now it writes the photo author title of post.. the username/image data. 
 
-# <codecell>
+# In[44]:
 
 #os.listdir(dayzpath)
 
-# <markdowncell>
 
 # Instead of creating these white images, why not download the art replies of the reference photo.
 
-# <codecell>
+# In[45]:
 
 #for lisa in lisauth:
 #    #print lisa + '-line.png'
@@ -370,38 +410,43 @@ for lisr in lisrgc:
 
     #print lisa + '-colour.png'
 
-# <codecell>
+
+# In[46]:
 
 os.listdir('/home/wcmckee/getsdrawndotcom/imgs')
 
-# <codecell>
+
+# In[47]:
 
 #lisauth
 
-# <markdowncell>
 
 # I want to save the list of usernames that submit images as png files in a dir. 
 # Currently when I call the list of authors it returns Redditor(user_name='theusername'). I want to return 'theusername'.
 # Once this is resolved I can add '-line.png' '-bw.png' '-colour.png' to each folder. 
 
-# <codecell>
+# In[48]:
 
 #lisr.author
 
-# <codecell>
+
+# In[49]:
 
 namlis = []
 
-# <codecell>
 
-opsinz = open('/home/wcmckee/visignsys/index.meta', 'r')
-panz = opsinz.read()
+# In[52]:
 
-# <codecell>
+#opsinz = open('/home/wcmckee/visignsys/index.meta', 'r')
+#panz = opsinz.read()
+
+
+# In[53]:
 
 os.chdir('/home/wcmckee/getsdrawndotcom/' + rmgzdays)
 
-# <codecell>
+
+# In[83]:
 
 #panz()
 for rdz in lisrgc:
@@ -416,35 +461,52 @@ for rdz in lisrgc:
             shutil.copyfileobj(response.raw, out_file)
             del response
 
-# <codecell>
+
+# In[55]:
 
 apsize = []
 
-# <codecell>
+
+# In[56]:
 
 aptype = []
 
-# <codecell>
+
+# In[57]:
 
 basewidth = 600
 
-# <codecell>
+
+# In[58]:
 
 imgdict = dict()
 
-# <codecell>
+
+# In[79]:
+
+rmgzdays
+
+
+# In[76]:
 
 for rmglis in os.listdir('/home/wcmckee/getsdrawndotcom/' + rmgzdays):
     #print rmglis
     im = Image.open(rmglis)
     #print im.size
     imgdict.update({rmglis : im.size})
+    #imgdict.update({rmglis : im.getcolors()})
     #im.thumbnail(size, Image.ANTIALIAS)
     #im.save(file + ".thumbnail", "JPEG")
     apsize.append(im.size)
     aptype.append(rmglis)
 
-# <codecell>
+
+# In[77]:
+
+imgdict
+
+
+# In[60]:
 
 #for imdva in imgdict.values():
     #print imdva
@@ -458,7 +520,8 @@ for rmglis in os.listdir('/home/wcmckee/getsdrawndotcom/' + rmgzdays):
             #print imgdict.values
             # Needs to update imgdict.values with this new number. Must halve height also.
 
-# <codecell>
+
+# In[61]:
 
 #basewidth = 300
 #img = Image.open('somepic.jpg')
@@ -467,14 +530,18 @@ for rmglis in os.listdir('/home/wcmckee/getsdrawndotcom/' + rmgzdays):
 #img = img.resize((basewidth,hsize), PIL.Image.ANTIALIAS)
 #img.save('sompic.jpg')
 
-# <codecell>
+
+# In[62]:
 
 #os.chdir(metzdays)
 
-# <codecell>
+
+# In[62]:
 
 
-# <codecell>
+
+
+# In[63]:
 
 #for numz in apsize:
 #    print numz[0]
@@ -483,48 +550,57 @@ for rmglis in os.listdir('/home/wcmckee/getsdrawndotcom/' + rmgzdays):
 #    else:
 #        print ('less than 800!')
 
-# <codecell>
+
+# In[64]:
 
 reliz = []
 
-# <codecell>
+
+# In[65]:
 
 for refls in os.listdir('/home/wcmckee/getsdrawndotcom/' + rmgzdays):
     #print rmgzdays + refls
     reliz.append(rmgzdays + '/' + refls)
 
-# <codecell>
 
-reliz
+# In[144]:
 
-# <codecell>
+#reliz
 
-aptype
 
-# <codecell>
+# In[145]:
 
-opad = open('/home/wcmckee/ad.html', 'r')
+#aptype
 
-# <codecell>
 
-opred = opad.read()
+# In[147]:
 
-# <codecell>
+#opad = open('/home/wcmckee/ad.html', 'r')
 
-str2 = opred.replace("\n", "")
 
-# <codecell>
+# In[149]:
 
-str2
+#opred = opad.read()
 
-# <codecell>
+
+# In[150]:
+
+#str2 = opred.replace("\n", "")
+
+
+# In[151]:
+
+#str2
+
+
+# In[153]:
 
 doc = dominate.document(title='GetsDrawn')
 
 with doc.head:
     link(rel='stylesheet', href='style.css')
     script(type ='text/javascript', src='script.js')
-    str(str2)
+    #str(str2)
     
     with div():
         attr(cls='header')
@@ -532,7 +608,7 @@ with doc.head:
         p(img('imgs/getsdrawn-bw.png', src='imgs/getsdrawn-bw.png'))
         #p(img('imgs/15/01/02/ReptileLover82-reference.png', src= 'imgs/15/01/02/ReptileLover82-reference.png'))
         h1('Updated ', strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime()))
-        p(panz)
+        #p(panz)
         p(bodycom)
     
     
@@ -566,37 +642,45 @@ with doc:
 
 #print doc
 
-# <codecell>
+
+# In[154]:
 
 docre = doc.render()
 
-# <codecell>
+
+# In[155]:
 
 #s = docre.decode('ascii', 'ignore')
 
-# <codecell>
+
+# In[156]:
 
 yourstring = docre.encode('ascii', 'ignore').decode('ascii')
 
-# <codecell>
+
+# In[157]:
 
 indfil = ('/home/wcmckee/getsdrawndotcom/index.html')
 
-# <codecell>
+
+# In[158]:
 
 mkind = open(indfil, 'w')
 mkind.write(yourstring)
 mkind.close()
 
-# <codecell>
+
+# In[ ]:
 
 #os.system('scp -r /home/wcmckee/getsdrawndotcom/ wcmckee@getsdrawn.com:/home/wcmckee/getsdrawndotcom')
 
-# <codecell>
+
+# In[ ]:
 
 #rsync -azP source destination
 
-# <codecell>
+
+# In[ ]:
 
 #updatehtm = raw_input('Update index? Y/n')
 #updateref = raw_input('Update reference? Y/n')
@@ -608,26 +692,205 @@ mkind.close()
 #if 'y' or '' in updateref:
 #    os.system('rsync -azP /home/wcmckee/getsdrawndotcom/ wcmckee@getsdrawn.com:/home/wcmckee/getsdrawndotcom/')
 
-# <codecell>
 
-os.system('scp -r /home/wcmckee/getsdrawndotcom/index.html wcmckee@getsdrawn.com:/home/wcmckee/getsdrawndotcom/index.html')
+# In[ ]:
 
-# <codecell>
+#os.system('scp -r /home/wcmckee/getsdrawndotcom/index.html wcmckee@getsdrawn.com:/home/wcmckee/getsdrawndotcom/index.html')
+
+
+# In[ ]:
 
 #os.system('scp -r /home/wcmckee/getsdrawndotcom/style.css wcmckee@getsdrawn.com:/home/wcmckee/getsdrawndotcom/style.css')
 
-# <codecell>
+
+# In[88]:
+
+#os.system("find /home/wcmckee/getsdrawndotcom/ -type f -name '*-reference.png'")
 
 
-# <codecell>
+# In[97]:
+
+lisfed = []
 
 
-# <codecell>
+# In[191]:
+
+for oswalk in os.walk('/home/wcmckee/getsdrawndotcom/'):
+    #if '*-reference.png' in oswalk:
+    #print oswalk
+    lisfed.append(oswalk)
 
 
-# <codecell>
+# In[192]:
+
+oswalk
 
 
-# <codecell>
+# In[106]:
+
+getdrndir = ('/home/wcmckee/getsdrawndotcom/')
+
+
+# In[107]:
+
+import walkdir 
+
+
+# In[112]:
+
+for filz in walkdir.filtered_walk(getdrndir,  included_dirs='*-reference.png'):
+    print filz
+
+
+# In[116]:
+
+walkz = ('/home/wcmckee/getsdrawndotcom/')
+
+
+# In[117]:
+
+walkz
+
+
+# In[137]:
+
+refim = []
+
+
+# In[140]:
+
+from walkdir import filtered_walk, dir_paths, all_paths, file_paths
+
+files = file_paths(filtered_walk('/home/wcmckee/getsdrawndotcom/', depth=100, included_files=['*-reference.png']))
+
+
+# In[159]:
+
+for fil in files:
+    #print fil
+    refim.append(fil)
+
+
+# In[160]:
+
+len(refim)
+
+
+# In[165]:
+
+nalis = []
+
+
+# In[180]:
+
+for ref in refim:
+    #print ref[54:-14]
+    nalis.append(ref[54:-14])
+#54
+
+
+# In[169]:
+
+nalis.sort()
+
+
+# In[171]:
+
+len(nalis)
+
+
+# In[178]:
+
+filnalis = filter(None, nalis)
+
+
+# Working good at extracting usernames from folders. Need to look up usernames on reddit. 
+
+# In[189]:
+
+#for filna in filnalis:
+#    usrz = r.get_redditor(filna)
+
+
+# In[190]:
+
+for filn in filnalis:
+    print filn
+
+
+# In[183]:
+
+docall = dominate.document(title='GetsDrawnAll')
+
+with docall.head:
+    link(rel='stylesheet', href='style.css')
+    script(type ='text/javascript', src='script.js')
+    #str(str2)
+    
+    with div():
+        attr(cls='header')
+        h1('GetsDrawnAll')
+        p(img('imgs/getsdrawn-bw.png', src='imgs/getsdrawn-bw.png'))
+        #p(img('imgs/15/01/02/ReptileLover82-reference.png', src= 'imgs/15/01/02/ReptileLover82-reference.png'))
+        h1('Updated ', strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime()))
+        #p(panz)
+        p(bodycom)
+    
+    
+
+with docall:
+    with div(id='body').add(ol()):
+        for refz in refim:
+            #h1(rdz.title)
+            #a(rdz.url)
+            #p(img(rdz, src='%s' % rdz))
+            #print rdz
+            p(img(refz, src = refz))
+            p(refz)
+
+
+                
+            #print rdz.url
+            #if '.jpg' in rdz.url:
+            #    img(rdz.urlz)
+            #else:
+            #    a(rdz.urlz)
+            #h1(str(rdz.author))
+            
+            #li(img(i.lower(), src='%s' % i))
+
+    with div():
+        attr(cls='body')
+        p('GetsDrawn is open source')
+        a('https://github.com/wcmckee/wcmckee')
+        a('https://reddit.com/r/redditgetsdrawn')
+
+#print doc
+
+
+# In[184]:
+
+doctea = docall.render()
+
+
+# In[185]:
+
+strng = doctea.encode('ascii', 'ignore').decode('ascii')
+
+
+# In[186]:
+
+getdall = ('/home/wcmckee/getsdrawnall/index.html')
+
+
+# In[188]:
+
+msav = open(getdall, 'w')
+msav.write(strng)
+msav.close()
+
+
+# In[ ]:
+
 
 
