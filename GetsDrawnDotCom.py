@@ -78,9 +78,21 @@
 # 
 # 
 
-# Work on 
+# Now saves an html page with all images embed. 
+# 
+# Create Nikola blog from each post. 
 
-# In[2]:
+# In[252]:
+
+
+
+
+# In[252]:
+
+
+
+
+# In[253]:
 
 import os 
 import requests
@@ -105,32 +117,32 @@ import shutil
 import arrow
 
 
-# In[3]:
+# In[254]:
 
 gtsdrndir = ('/home/wcmckee/getsdrawndotcom')
 
 
-# In[4]:
+# In[255]:
 
 os.chdir(gtsdrndir)
 
 
-# In[5]:
+# In[256]:
 
 r = praw.Reddit(user_agent='getsdrawndotcom')
 
 
-# In[6]:
+# In[257]:
 
 #getmin = r.get_redditor('itwillbemine')
 
 
-# In[7]:
+# In[258]:
 
 #mincom = getmin.get_comments()
 
 
-# In[8]:
+# In[259]:
 
 #engine = pyttsx.init()
 
@@ -138,30 +150,30 @@ r = praw.Reddit(user_agent='getsdrawndotcom')
 #engine.runAndWait()
 
 
-# In[9]:
+# In[260]:
 
 #shtweet = []
 
 
-# In[10]:
+# In[261]:
 
 #for mi in mincom:
 #    print mi
 #    shtweet.append(mi)
 
 
-# In[11]:
+# In[262]:
 
 bodycom = []
 bodyicv = dict()
 
 
-# In[12]:
+# In[263]:
 
 #beginz = pyttsx.init()
 
 
-# In[13]:
+# In[264]:
 
 #for shtz in shtweet:
 #    print shtz.downs
@@ -176,55 +188,55 @@ bodyicv = dict()
     #bodyic
 
 
-# In[14]:
+# In[265]:
 
 #bodycom 
 
 
-# In[15]:
+# In[266]:
 
-getnewr = r.get_subreddit('redditgetsdrawnbadly')
+getnewr = r.get_subreddit('redditgetsdrawn')
 
 
-# In[16]:
+# In[267]:
 
 rdnew = getnewr.get_new()
 
 
-# In[17]:
+# In[268]:
 
 lisrgc = []
 lisauth = []
 
 
-# In[18]:
+# In[269]:
 
 for uz in rdnew:
     #print uz
     lisrgc.append(uz)
 
 
-# In[19]:
+# In[270]:
 
 gtdrndic = dict()
 
 
-# In[20]:
+# In[271]:
 
 imgdir = ('/home/wcmckee/getsdrawndotcom/imgs')
 
 
-# In[21]:
+# In[272]:
 
 artlist = os.listdir(imgdir)
 
 
-# In[22]:
+# In[273]:
 
 from time import time
 
 
-# In[23]:
+# In[274]:
 
 yearz = strftime("%y", gmtime())
 monthz = strftime("%m", gmtime())
@@ -235,7 +247,7 @@ dayz = strftime("%d", gmtime())
 
 
 
-# In[24]:
+# In[275]:
 
 imgzdir = ('imgs/')
 yrzpat = (imgzdir + yearz)
@@ -248,22 +260,22 @@ metzdays = (dayzpath + '/meta')
 repathz = ('imgs/' + yearz + '/' + monthz + '/' + dayz + '/')
 
 
-# In[25]:
+# In[276]:
 
 metzdays
 
 
-# In[26]:
+# In[277]:
 
 imgzdays
 
 
-# In[27]:
+# In[278]:
 
 repathz
 
 
-# In[28]:
+# In[279]:
 
 def ospacheck():
     if os.path.isdir(imgzdir + yearz) == True:
@@ -274,12 +286,12 @@ def ospacheck():
     
 
 
-# In[29]:
+# In[280]:
 
 ospacheck()
 
 
-# In[30]:
+# In[281]:
 
 #if os.path.isdir(imgzdir + yearz) == True:
 #    print 'its true'
@@ -288,7 +300,7 @@ ospacheck()
 #    os.mkdir(imgzdir + yearz)
 
 
-# In[31]:
+# In[282]:
 
 if os.path.isdir(monzpath) == True:
     print 'its true'
@@ -299,7 +311,7 @@ else:
 #os.mkdir(monzpath)
 
 
-# In[32]:
+# In[283]:
 
 if os.path.isdir(dayzpath) == True:
     print 'its true'
@@ -310,7 +322,7 @@ else:
 #os.mkdir(dayzpath)
 
 
-# In[33]:
+# In[284]:
 
 if os.path.isdir(imgzdays) == True:
     print 'its true'
@@ -319,7 +331,7 @@ else:
     os.mkdir(imgzdays)
 
 
-# In[34]:
+# In[285]:
 
 if os.path.isdir(rmgzdays) == True:
     print 'its true'
@@ -328,7 +340,7 @@ else:
     os.mkdir(rmgzdays)
 
 
-# In[35]:
+# In[286]:
 
 if os.path.isdir(metzdays)  == True:
     print 'its true'
@@ -337,45 +349,45 @@ else:
     os.mkdir(metzdays)
 
 
-# In[36]:
+# In[287]:
 
 fullhom = ('/home/wcmckee/getsdrawndotcom/')
 
 
-# In[37]:
+# In[288]:
 
 os.listdir(fullhom + metzdays)
 
 
-# In[38]:
+# In[289]:
 
 #artlist
 
 
-# In[39]:
+# In[290]:
 
 httpad = ('http://getsdrawn.com/imgs')
 
 
-# In[40]:
+# In[291]:
 
 #im = Image.new("RGB", (512, 512), "white")
 #im.save(file + ".thumbnail", "JPEG")
 
 
-# In[41]:
+# In[292]:
 
 rmgzdays = (dayzpath + '/reference')
 imgzdays = (dayzpath + '/art')
 metzdays = (dayzpath + '/meta')
 
 
-# In[42]:
+# In[293]:
 
 os.chdir(fullhom + metzdays)
 
 
-# In[43]:
+# In[294]:
 
 for lisr in lisrgc:
     gtdrndic.update({'title': lisr.title})
@@ -388,14 +400,14 @@ for lisr in lisrgc:
 
 # I have it creating a meta folder and creating/writing username.meta files. It wrote 'test' in each folder, but now it writes the photo author title of post.. the username/image data. 
 
-# In[44]:
+# In[295]:
 
 #os.listdir(dayzpath)
 
 
 # Instead of creating these white images, why not download the art replies of the reference photo.
 
-# In[45]:
+# In[296]:
 
 #for lisa in lisauth:
 #    #print lisa + '-line.png'
@@ -411,12 +423,12 @@ for lisr in lisrgc:
     #print lisa + '-colour.png'
 
 
-# In[46]:
+# In[297]:
 
 os.listdir('/home/wcmckee/getsdrawndotcom/imgs')
 
 
-# In[47]:
+# In[298]:
 
 #lisauth
 
@@ -425,28 +437,28 @@ os.listdir('/home/wcmckee/getsdrawndotcom/imgs')
 # Currently when I call the list of authors it returns Redditor(user_name='theusername'). I want to return 'theusername'.
 # Once this is resolved I can add '-line.png' '-bw.png' '-colour.png' to each folder. 
 
-# In[48]:
+# In[299]:
 
 #lisr.author
 
 
-# In[49]:
+# In[300]:
 
 namlis = []
 
 
-# In[52]:
+# In[301]:
 
 #opsinz = open('/home/wcmckee/visignsys/index.meta', 'r')
 #panz = opsinz.read()
 
 
-# In[53]:
+# In[302]:
 
 os.chdir('/home/wcmckee/getsdrawndotcom/' + rmgzdays)
 
 
-# In[83]:
+# In[303]:
 
 #panz()
 for rdz in lisrgc:
@@ -462,32 +474,32 @@ for rdz in lisrgc:
             del response
 
 
-# In[55]:
+# In[304]:
 
 apsize = []
 
 
-# In[56]:
+# In[305]:
 
 aptype = []
 
 
-# In[57]:
+# In[306]:
 
 basewidth = 600
 
 
-# In[58]:
+# In[307]:
 
 imgdict = dict()
 
 
-# In[79]:
+# In[308]:
 
 rmgzdays
 
 
-# In[76]:
+# In[309]:
 
 for rmglis in os.listdir('/home/wcmckee/getsdrawndotcom/' + rmgzdays):
     #print rmglis
@@ -501,12 +513,12 @@ for rmglis in os.listdir('/home/wcmckee/getsdrawndotcom/' + rmgzdays):
     aptype.append(rmglis)
 
 
-# In[77]:
+# In[310]:
 
 imgdict
 
 
-# In[60]:
+# In[311]:
 
 #for imdva in imgdict.values():
     #print imdva
@@ -521,7 +533,7 @@ imgdict
             # Needs to update imgdict.values with this new number. Must halve height also.
 
 
-# In[61]:
+# In[312]:
 
 #basewidth = 300
 #img = Image.open('somepic.jpg')
@@ -531,17 +543,17 @@ imgdict
 #img.save('sompic.jpg')
 
 
-# In[62]:
+# In[313]:
 
 #os.chdir(metzdays)
 
 
-# In[62]:
+# In[313]:
 
 
 
 
-# In[63]:
+# In[314]:
 
 #for numz in apsize:
 #    print numz[0]
@@ -551,49 +563,49 @@ imgdict
 #        print ('less than 800!')
 
 
-# In[64]:
+# In[315]:
 
 reliz = []
 
 
-# In[65]:
+# In[316]:
 
 for refls in os.listdir('/home/wcmckee/getsdrawndotcom/' + rmgzdays):
     #print rmgzdays + refls
     reliz.append(rmgzdays + '/' + refls)
 
 
-# In[144]:
+# In[317]:
 
 #reliz
 
 
-# In[145]:
+# In[318]:
 
 #aptype
 
 
-# In[147]:
+# In[319]:
 
 #opad = open('/home/wcmckee/ad.html', 'r')
 
 
-# In[149]:
+# In[320]:
 
 #opred = opad.read()
 
 
-# In[150]:
+# In[321]:
 
 #str2 = opred.replace("\n", "")
 
 
-# In[151]:
+# In[322]:
 
 #str2
 
 
-# In[153]:
+# In[323]:
 
 doc = dominate.document(title='GetsDrawn')
 
@@ -643,44 +655,44 @@ with doc:
 #print doc
 
 
-# In[154]:
+# In[324]:
 
 docre = doc.render()
 
 
-# In[155]:
+# In[325]:
 
 #s = docre.decode('ascii', 'ignore')
 
 
-# In[156]:
+# In[326]:
 
 yourstring = docre.encode('ascii', 'ignore').decode('ascii')
 
 
-# In[157]:
+# In[327]:
 
 indfil = ('/home/wcmckee/getsdrawndotcom/index.html')
 
 
-# In[158]:
+# In[328]:
 
 mkind = open(indfil, 'w')
 mkind.write(yourstring)
 mkind.close()
 
 
-# In[ ]:
+# In[329]:
 
 #os.system('scp -r /home/wcmckee/getsdrawndotcom/ wcmckee@getsdrawn.com:/home/wcmckee/getsdrawndotcom')
 
 
-# In[ ]:
+# In[330]:
 
 #rsync -azP source destination
 
 
-# In[ ]:
+# In[331]:
 
 #updatehtm = raw_input('Update index? Y/n')
 #updateref = raw_input('Update reference? Y/n')
@@ -693,27 +705,42 @@ mkind.close()
 #    os.system('rsync -azP /home/wcmckee/getsdrawndotcom/ wcmckee@getsdrawn.com:/home/wcmckee/getsdrawndotcom/')
 
 
-# In[ ]:
+# In[332]:
 
 #os.system('scp -r /home/wcmckee/getsdrawndotcom/index.html wcmckee@getsdrawn.com:/home/wcmckee/getsdrawndotcom/index.html')
 
 
-# In[ ]:
+# In[333]:
 
 #os.system('scp -r /home/wcmckee/getsdrawndotcom/style.css wcmckee@getsdrawn.com:/home/wcmckee/getsdrawndotcom/style.css')
 
 
-# In[88]:
+# In[334]:
 
 #os.system("find /home/wcmckee/getsdrawndotcom/ -type f -name '*-reference.png'")
 
 
-# In[97]:
+# In[335]:
 
 lisfed = []
 
 
-# In[191]:
+# In[336]:
+
+#oswalk
+
+
+# In[337]:
+
+getdrndir = ('/home/wcmckee/getsdrawndotcom/')
+
+
+# In[338]:
+
+import walkdir 
+
+
+# In[339]:
 
 for oswalk in os.walk('/home/wcmckee/getsdrawndotcom/'):
     #if '*-reference.png' in oswalk:
@@ -721,104 +748,312 @@ for oswalk in os.walk('/home/wcmckee/getsdrawndotcom/'):
     lisfed.append(oswalk)
 
 
-# In[192]:
+# In[340]:
 
-oswalk
-
-
-# In[106]:
-
-getdrndir = ('/home/wcmckee/getsdrawndotcom/')
+#for filz in walkdir.filtered_walk(getdrndir,  included_dirs='*-reference.png'):
+ #   print filz
 
 
-# In[107]:
-
-import walkdir 
-
-
-# In[112]:
-
-for filz in walkdir.filtered_walk(getdrndir,  included_dirs='*-reference.png'):
-    print filz
-
-
-# In[116]:
+# In[341]:
 
 walkz = ('/home/wcmckee/getsdrawndotcom/')
 
 
-# In[117]:
+# In[342]:
 
 walkz
 
 
-# In[137]:
+# In[343]:
 
 refim = []
 
 
-# In[140]:
+# In[344]:
 
 from walkdir import filtered_walk, dir_paths, all_paths, file_paths
 
 files = file_paths(filtered_walk('/home/wcmckee/getsdrawndotcom/', depth=100, included_files=['*-reference.png']))
 
 
-# In[159]:
+# In[368]:
 
 for fil in files:
     #print fil
     refim.append(fil)
 
 
-# In[160]:
+# In[373]:
+
+
+
+
+# In[369]:
 
 len(refim)
 
 
-# In[165]:
+# In[404]:
 
 nalis = []
+imlis = []
+cheklis = []
 
 
-# In[180]:
+# In[405]:
+
+for chet in refim:
+    cheklis.append(chet[54:-14])
+    imlis.append(chet[30:])
+
+
+# In[414]:
+
+filnalis = filter(None, cheklis)
+
+
+# In[409]:
+
+#def listurlz():
+#    for ref in refim:
+        #print ref[54:-14]
+#        nalis.append(ref[54:-14])
+        #imlis.append(ref[30:])
+       # return nalis
+
+
+# In[417]:
+
+nelist = set(list(filnalis))
+
+
+# In[421]:
+
+len(nelist) 
+
+
+# In[350]:
+
+finel = []
+
+
+# In[ ]:
+
+
+
+
+# In[423]:
+
+#filnalis
+
+
+# In[351]:
+
+for nel in nelist:
+    #print nel()
+    finel.append(nel)
+    finel.sort
+    
+
+
+# In[352]:
+
+finel.sort
+
+
+# In[353]:
+
+feralis = []
+
+
+# In[354]:
+
+for fil in finel:
+    #print fil
+    feralis.append(fil)
+
+
+# In[355]:
+
+apzlis = []
+
+
+# In[356]:
+
+for ferz in feralis:
+    #print ferz
+    for fea in ferz:
+        #print fea
+        apzlis.append(fea)
+
+
+# In[357]:
+
+#sorted(feralis)
+
+
+# In[358]:
+
+import random
+
+
+# In[359]:
+
+randz = random.randint(0, len(nelist))
+
+
+# In[360]:
+
+randz
+
+
+# In[429]:
+
+newzlist = list(nelist)
+
+
+# In[431]:
+
+ranred = r.get_redditor(newzlist[randz])
+
+
+# In[432]:
+
+print ranred.get_submitted
+
+
+# In[487]:
+
+comza = ranred.get_submitted()
+
+
+# In[487]:
+
+
+
+
+# In[488]:
+
+for rcom in comza:
+    print rcom.subreddit
+    #if 'redditgetsdrawn' in rcom.subreddit:
+    #    print rcom
+    print rcom.created
+
+
+# In[447]:
+
+deepmz = ranred.name
+
+
+# In[448]:
+
+for deep in deepmz:
+    print deep
+
+
+# In[434]:
+
+rsubm = ranred.get_submitted
+
+
+# In[435]:
+
+for rsm in rsubm():
+    print rsm
+
+
+# In[436]:
+
+ozalis = []
+
+
+# In[ ]:
+
+for fera in feralis:
+    print len(fera)
+    randz = random.randint(0, len(fera))
+    for fea in fera:
+        #print fea
+        ozalis.append(fea)
+        
+
+
+# In[ ]:
+
+#randz
+
+
+# In[ ]:
+
+#listurlz()
+
+
+# In[ ]:
 
 for ref in refim:
     #print ref[54:-14]
     nalis.append(ref[54:-14])
+    imlis.append(ref[30:])
 #54
 
 
-# In[169]:
+# In[ ]:
+
+imlis[0]
+
+
+# In[ ]:
 
 nalis.sort()
 
 
-# In[171]:
+# In[ ]:
 
 len(nalis)
 
 
-# In[178]:
+# In[ ]:
+
+
+
+
+# In[ ]:
 
 filnalis = filter(None, nalis)
 
 
 # Working good at extracting usernames from folders. Need to look up usernames on reddit. 
 
-# In[189]:
+# In[ ]:
 
 #for filna in filnalis:
 #    usrz = r.get_redditor(filna)
 
 
-# In[190]:
+# In[ ]:
+
+#itfil = iter(filnalis)
+
+
+# In[ ]:
+
+#filter(itfil)
+
+
+# In[ ]:
+
+#for itz in itfil:
+#    print itz
+
+
+# In[ ]:
 
 for filn in filnalis:
     print filn
 
 
-# In[183]:
+# In[ ]:
 
 docall = dominate.document(title='GetsDrawnAll')
 
@@ -840,7 +1075,7 @@ with docall.head:
 
 with docall:
     with div(id='body').add(ol()):
-        for refz in refim:
+        for refz in imlis:
             #h1(rdz.title)
             #a(rdz.url)
             #p(img(rdz, src='%s' % rdz))
@@ -868,29 +1103,24 @@ with docall:
 #print doc
 
 
-# In[184]:
+# In[ ]:
 
 doctea = docall.render()
 
 
-# In[185]:
+# In[ ]:
 
 strng = doctea.encode('ascii', 'ignore').decode('ascii')
 
 
-# In[186]:
+# In[ ]:
 
 getdall = ('/home/wcmckee/getsdrawnall/index.html')
 
 
-# In[188]:
+# In[ ]:
 
 msav = open(getdall, 'w')
 msav.write(strng)
 msav.close()
-
-
-# In[ ]:
-
-
 
