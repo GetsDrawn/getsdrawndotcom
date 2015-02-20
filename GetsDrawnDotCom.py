@@ -285,12 +285,12 @@ else:
     #os.mkdir('/home/wcmckee/getsdrawndotcom/' + monzpath)
 
 # <codecell>
-
-if os.path.isdir(dayzpath) == True:
-    print 'its true'
-else:
-    print 'its false'
-    os.mkdir(dayzpath)
+print dayzpath
+#if os.path.isdir(dayzpath) == True:
+#    print 'its true'
+#else:
+#    print 'its false'
+#    os.mkdir(dayzpath)
 
 if os.path.isdir(imgzdays) == True:
     print 'its true'
