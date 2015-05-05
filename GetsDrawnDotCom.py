@@ -238,25 +238,25 @@ yrzpat = (imgzdir + yearz)
 monzpath = (yrzpat + '/' + monthz)
 dayzpath = (monzpath + '/' + dayz)
 rmgzdays = (dayzpath + '/reference')
-imgzdays = (dayzpath + '/art')
-metzdays = (dayzpath + '/meta')
+#imgzdays = (dayzpath + '/art')
+#metzdays = (dayzpath + '/meta')
 
 repathz = ('imgs/' + yearz + '/' + monthz + '/' + dayz + '/')
 
 
 # In[31]:
 
-metzdays
+#metzdays
 
 
 # In[32]:
 
-imgzdays
+#imgzdays
 
 
 # In[33]:
 
-repathz
+#repathz
 
 
 # In[34]:
@@ -308,11 +308,11 @@ else:
 
 # In[39]:
 
-if os.path.isdir(imgzdays) == True:
-    print 'its true'
-else:
-    print 'its false'
-    os.mkdir(imgzdays)
+#if os.path.isdir(imgzdays) == True:
+#    print 'its true'
+#else:
+#    print 'its false'
+#    os.mkdir(imgzdays)
 
 
 # In[40]:
@@ -326,11 +326,11 @@ else:
 
 # In[41]:
 
-if os.path.isdir(metzdays)  == True:
-    print 'its true'
-else:
-    print 'its failse'
-    os.mkdir(metzdays)
+#if os.path.isdir(metzdays)  == True:
+#    print 'its true'
+#else:
+#    print 'its failse'
+#    os.mkdir(metzdays)
 
 
 # In[42]:
@@ -340,7 +340,7 @@ fullhom = ('/home/wcmckee/getsdrawndotcom/')
 
 # In[43]:
 
-os.listdir(fullhom + metzdays)
+#os.listdir(fullhom + metzdays)
 
 
 # In[44]:
@@ -362,7 +362,7 @@ httpad = ('http://getsdrawn.com/imgs')
 # In[47]:
 
 rmgzdays = (dayzpath + '/reference')
-imgzdays = (dayzpath + '/art')
+#imgzdays = (dayzpath + '/art')
 metzdays = (dayzpath + '/meta')
 
 
@@ -378,13 +378,13 @@ gtdrndic
 
 # In[50]:
 
-for lisr in lisrgc:
-    gtdrndic.update({'title': lisr.title})
-    lisauth.append(str(lisr.author))
-    for osliz in os.listdir(fullhom + metzdays):
-        with open(str(lisr.author) + '.meta', "w") as f:
-            rstrin = lisr.title.encode('ascii', 'ignore').decode('ascii')
-            f.write(rstrin)
+#for lisr in lisrgc:
+#    gtdrndic.update({'title': lisr.title})
+#    lisauth.append(str(lisr.author))
+#    for osliz in os.listdir(fullhom + metzdays):
+#        with open(str(lisr.author) + '.meta', "w") as f:
+#            rstrin = lisr.title.encode('ascii', 'ignore').decode('ascii')
+#            f.write(rstrin)
 
 
 # I have it creating a meta folder and creating/writing username.meta files. It wrote 'test' in each folder, but now it writes the photo author title of post.. the username/image data. 
@@ -593,7 +593,7 @@ aptype
 #str2
 
 
-# In[96]:
+# In[192]:
 
 doc = dominate.document(title='GetsDrawn')
 
@@ -620,7 +620,9 @@ with doc:
             #p(img(rdz, src='%s' % rdz))
             #print rdz
             p(img(rdz, src = rdz))
-            p(rdz)
+            #p(rdz)
+            p(p(a(rdz, href= ('http://getsdrawn.com/' + rdz))))
+
 
 
                 
@@ -636,50 +638,49 @@ with doc:
     with div():
         attr(cls='body')
         dominate.tags.p('GetsDrawn is open source')
-        dominate.tags.p('getsdrawn - github', href='https://github.com/getsdrawn')
-        #ul(p(a('getsdrawn - github'), href='https://github.com/getsdrawn'))
-        #p(a('rgd', href='https://reddit.com/r/redditgetsdrawn')
-        #print doc
+        #ul('getsdrawn - github', href='https://github.com/getsdrawn/')
+        p(p(a('getsdrawn - github', href='https://github.com/getsdrawn/')))
+        p(p(a('RedditGetsDrawn', href='https://reddit.com/r/redditgetsdrawn')))
 
 
-# In[91]:
+# In[193]:
 
 docre = doc.render()
 
 
-# In[92]:
+# In[194]:
 
 #s = docre.decode('ascii', 'ignore')
 
 
-# In[93]:
+# In[195]:
 
 yourstring = docre.encode('ascii', 'ignore').decode('ascii')
 
 
-# In[94]:
+# In[196]:
 
 indfil = ('/home/wcmckee/getsdrawndotcom/index.html')
 
 
-# In[95]:
+# In[197]:
 
 mkind = open(indfil, 'w')
 mkind.write(yourstring)
 mkind.close()
 
 
-# In[ ]:
+# In[198]:
 
 #os.system('scp -r /home/wcmckee/getsdrawndotcom/ wcmckee@getsdrawn.com:/home/wcmckee/getsdrawndotcom')
 
 
-# In[ ]:
+# In[191]:
 
 #rsync -azP source destination
 
 
-# In[ ]:
+# In[128]:
 
 #updatehtm = raw_input('Update index? Y/n')
 #updateref = raw_input('Update reference? Y/n')
