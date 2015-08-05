@@ -78,7 +78,7 @@
 # 
 # 
 
-# In[2]:
+# In[1]:
 
 import os 
 import requests
@@ -100,6 +100,13 @@ from pprint import pprint
 #import pyttsx
 import shutil
 import getpass
+import random
+from TwitterFollowBot import TwitterBot
+
+
+# In[2]:
+
+my_bot = TwitterBot()
 
 
 # In[3]:
@@ -117,7 +124,7 @@ gtsdrndir = ('/home/' + hosnam + '/getsdrawndotcom/')
 gtsdrndir
 
 
-# In[8]:
+# In[6]:
 
 if os.path.isdir(gtsdrndir) == True:
     print ('its true')
@@ -126,27 +133,27 @@ else:
     os.mkdir(gtsdrndir)
 
 
-# In[9]:
+# In[7]:
 
 os.chdir(gtsdrndir)
 
 
-# In[10]:
+# In[8]:
 
 r = praw.Reddit(user_agent='getsdrawndotcom')
 
 
-# In[11]:
+# In[9]:
 
 #getmin = r.get_redditor('itwillbemine')
 
 
-# In[12]:
+# In[10]:
 
 #mincom = getmin.get_comments()
 
 
-# In[13]:
+# In[11]:
 
 #engine = pyttsx.init()
 
@@ -154,30 +161,30 @@ r = praw.Reddit(user_agent='getsdrawndotcom')
 #engine.runAndWait()
 
 
-# In[14]:
+# In[12]:
 
 #shtweet = []
 
 
-# In[15]:
+# In[13]:
 
 #for mi in mincom:
 #    print mi
 #    shtweet.append(mi)
 
 
-# In[16]:
+# In[14]:
 
 bodycom = []
 bodyicv = dict()
 
 
-# In[17]:
+# In[15]:
 
 #beginz = pyttsx.init()
 
 
-# In[18]:
+# In[16]:
 
 #for shtz in shtweet:
 #    print shtz.downs
@@ -192,50 +199,50 @@ bodyicv = dict()
     #bodyic
 
 
-# In[19]:
+# In[17]:
 
 #bodycom 
 
 
-# In[20]:
+# In[18]:
 
 getnewr = r.get_subreddit('redditgetsdrawn')
 
 
-# In[21]:
+# In[19]:
 
 rdnew = getnewr.get_new()
 
 
-# In[22]:
+# In[20]:
 
 lisrgc = []
 lisauth = []
 
 
-# In[23]:
+# In[21]:
 
 for uz in rdnew:
     #print uz
     lisrgc.append(uz)
 
 
-# In[24]:
+# In[22]:
 
 gtdrndic = dict()
 
 
-# In[25]:
+# In[23]:
 
 imgdir = (gtsdrndir + 'imgs')
 
 
-# In[26]:
+# In[24]:
 
 imgdir
 
 
-# In[29]:
+# In[25]:
 
 if os.path.isdir(imgdir) == True:
     print ('its true')
@@ -244,17 +251,17 @@ else:
     os.mkdir(imgdir)
 
 
-# In[30]:
+# In[26]:
 
 artlist = os.listdir(imgdir)
 
 
-# In[32]:
+# In[27]:
 
 from time import time
 
 
-# In[33]:
+# In[28]:
 
 yearz = strftime("%y", gmtime())
 monthz = strftime("%m", gmtime())
@@ -264,7 +271,7 @@ dayz = strftime("%d", gmtime())
 #strftime("%y %m %d", gmtime())
 
 
-# In[34]:
+# In[29]:
 
 yrzpat = (imgdir + '/' + yearz)
 monzpath = (yrzpat + '/' + monthz)
@@ -276,27 +283,27 @@ metzdays = (dayzpath + '/meta')
 repathz = (imgdir + '/' + yearz + '/' + monthz + '/' + dayz + '/')
 
 
-# In[35]:
+# In[30]:
 
 repathz
 
 
-# In[36]:
+# In[31]:
 
 dayzpath
 
 
-# In[37]:
+# In[32]:
 
 imgzdays
 
 
-# In[38]:
+# In[33]:
 
 repathz
 
 
-# In[40]:
+# In[34]:
 
 def ospacheck():
     if os.path.isdir(imgdir + yearz) == True:
@@ -307,12 +314,12 @@ def ospacheck():
     
 
 
-# In[41]:
+# In[35]:
 
 ospacheck()
 
 
-# In[42]:
+# In[36]:
 
 #if os.path.isdir(imgzdir + yearz) == True:
 #    print 'its true'
@@ -321,7 +328,7 @@ ospacheck()
 #    os.mkdir(imgzdir + yearz)
 
 
-# In[43]:
+# In[37]:
 
 lizmon = ['monzpath', 'dayzpath', 'imgzdays', 'rmgzdays', 'metzdays']
 
@@ -335,7 +342,7 @@ lizmon = ['monzpath', 'dayzpath', 'imgzdays', 'rmgzdays', 'metzdays']
 # else 
 #  print its false, and make the dir
 
-# In[45]:
+# In[38]:
 
 if os.path.isdir(monzpath) == True:
     print ('its true')
@@ -344,7 +351,7 @@ else:
     #os.mkdir('/home/wcmckee/getsdrawndotcom/' + monzpath)
 
 
-# In[46]:
+# In[39]:
 
 if os.path.isdir(imgzdays) == True:
     print ('its true')
@@ -373,12 +380,17 @@ else:
 
 # Need to fix dir to just have /imgs/15/02/reference/imgnam-reference.jpg
 
-# In[47]:
+# In[40]:
 
 monzpath
 
 
-# In[48]:
+# In[ ]:
+
+
+
+
+# In[41]:
 
 iwcpath = 'imgs/' + yearz + '/' + monthz + '/' + dayz + '/reference'
 
@@ -387,17 +399,7 @@ iwcpath = 'imgs/' + yearz + '/' + monthz + '/' + dayz + '/reference'
 #rmgzdays = (dayzpath + '/reference')
 
 
-# In[49]:
-
-iwcpath
-
-
-# In[50]:
-
-iwcpath
-
-
-# In[51]:
+# In[42]:
 
 #for liz in lizmon:
 #    if os.path.isdir(liz) == True:
@@ -407,53 +409,76 @@ iwcpath
 #        os.mkdir(liz)
 
 
-# In[52]:
+# In[43]:
 
 fullhom = ('/home/wcmckee/getsdrawndotcom/')
 
 
-# In[53]:
+# In[44]:
 
 #artlist
 
 
-# In[54]:
+# In[45]:
 
 httpad = ('http://getsdrawn.com/imgs')
 
 
-# In[55]:
+# In[46]:
 
 #im = Image.new("RGB", (512, 512), "white")
 #im.save(file + ".thumbnail", "JPEG")
 
 
-# In[56]:
+# In[47]:
 
 rmgzdays = (dayzpath + '/reference')
 imgzdays = (dayzpath + '/art')
 metzdays = (dayzpath + '/meta')
 
 
-# In[57]:
+# In[48]:
 
 os.chdir(metzdays)
 
 
-# In[58]:
+# In[49]:
 
 metadict = dict()
 
 
 # if i save the data to the file how am i going to get it to update as the post is archieved. Such as up and down votes. 
 
-# In[59]:
+# In[50]:
+
+rgde = len(lisrgc)
+
+
+# In[51]:
+
+rgde
+
+
+# In[52]:
+
+alrgds = dict()
+
+
+# In[53]:
+
+#for lisr in lisrgc:
+#    print(lisr.author)
+#    print(lisr.title[0:30])
+
+
+# In[54]:
 
 for lisz in lisrgc:
     metadict.update({'up': lisz.ups})
     metadict.update({'down': lisz.downs})
     metadict.update({'title': lisz.title})
     metadict.update({'created': lisz.created})
+    
     #metadict.update({'createdutc': lisz.created_utc})
     #print lisz.ups
     #print lisz.downs
@@ -461,9 +486,94 @@ for lisz in lisrgc:
     #print lisz.comments
 
 
+# In[55]:
+
+import random
+
+
+# In[56]:
+
+ranchor = random.choice(lisrgc)
+
+
+# In[57]:
+
+titshort = ranchor.title[0:30]
+
+
+# In[58]:
+
+titsre =titshort.replace(' ', '')
+
+
+# In[59]:
+
+titsre
+
+
 # In[60]:
 
-metadict
+ranchor.url
+
+
+# In[61]:
+
+ranautr =  (ranchor.author)
+
+
+# In[62]:
+
+hasra = ('#') + str(ranautr)
+
+
+# In[63]:
+
+hasra
+
+
+# In[64]:
+
+hasgd = ('#getsdrawn')
+
+
+# In[ ]:
+
+
+
+
+# In[ ]:
+
+
+
+
+# In[ ]:
+
+
+
+
+# In[65]:
+
+urlfin = ('http://getsdrawn.com/' + iwcpath + '/' + str(ranautr) + '-reference.png')
+
+
+# In[66]:
+
+(urlfin)
+
+
+# In[67]:
+
+twez = (titsre + ' ' + urlfin + ' ' + hasra + ' ' + hasgd)
+
+
+# In[68]:
+
+len(twez)
+
+
+# In[ ]:
+
+
 
 
 # Need to save json object.
@@ -472,7 +582,7 @@ metadict
 # 
 # Cycle through lisr and append to dict/concert to json, and also cycle through lisr.author meta folders saving the json that was created. 
 
-# In[61]:
+# In[69]:
 
 for lisr in lisrgc:
     gtdrndic.update({'title': lisr.title})
@@ -490,7 +600,7 @@ for lisr in lisrgc:
             f.write(rstrin)
 
 
-# In[62]:
+# In[70]:
 
 #matdict
 
@@ -498,14 +608,14 @@ for lisr in lisrgc:
 # I have it creating a meta folder and creating/writing username.meta files. It wrote 'test' in each folder, but now it writes the photo author title of post.. the username/image data. It should be writing more than author title - maybe upvotes/downvotes, subreddit, time published etc.
 # 
 
-# In[63]:
+# In[71]:
 
 #os.listdir(dayzpath)
 
 
 # Instead of creating these white images, why not download the art replies of the reference photo.
 
-# In[64]:
+# In[72]:
 
 #for lisa in lisauth:
 #    #print lisa + '-line.png'
@@ -521,12 +631,7 @@ for lisr in lisrgc:
     #print lisa + '-colour.png'
 
 
-# In[65]:
-
-os.listdir('/home/wcmckee/getsdrawndotcom/imgs')
-
-
-# In[66]:
+# In[73]:
 
 #lisauth
 
@@ -535,23 +640,23 @@ os.listdir('/home/wcmckee/getsdrawndotcom/imgs')
 # Currently when I call the list of authors it returns Redditor(user_name='theusername'). I want to return 'theusername'.
 # Once this is resolved I can add '-line.png' '-bw.png' '-colour.png' to each folder. 
 
-# In[67]:
+# In[74]:
 
 #lisr.author
 
 
-# In[68]:
+# In[75]:
 
 namlis = []
 
 
-# In[69]:
+# In[76]:
 
 #opsinz = open('/home/wcmckee/visignsys/index.meta', 'r')
 #panz = opsinz.read()
 
 
-# In[70]:
+# In[77]:
 
 os.chdir(rmgzdays)
 
@@ -563,12 +668,12 @@ os.chdir(rmgzdays)
 
 
 
-# In[71]:
+# In[78]:
 
 #from imgurpython import ImgurClient
 
 
-# In[72]:
+# In[79]:
 
 #opps = open('/home/wcmckee/ps.txt', 'r')
 #opzs = open('/home/wcmckee/ps2.txt', 'r')
@@ -576,7 +681,7 @@ os.chdir(rmgzdays)
 #opzrd = opzs.read()
 
 
-# In[73]:
+# In[80]:
 
 #client = ImgurClient(oprd, opzrd)
 
@@ -589,32 +694,32 @@ os.chdir(rmgzdays)
 #itz = client.get_album_images()
 
 
-# In[74]:
+# In[81]:
 
 #galim = client.get_image('SBaV275')
 
 
-# In[75]:
+# In[82]:
 
 #galim.size
 
 
-# In[76]:
+# In[83]:
 
 #gelim = client.get_album_images('LTDJ9')
 
 
-# In[77]:
+# In[84]:
 
 #gelim
 
 
-# In[78]:
+# In[85]:
 
 #from urlparse import urlparse
 
 
-# In[79]:
+# In[86]:
 
 #linklis = []
 
@@ -625,12 +730,12 @@ os.chdir(rmgzdays)
 # 
 # Having problems with mixed /a/etwet and wetfwet urls. Using .strip('/') to remove forward slash in front of path. 
 
-# In[80]:
+# In[87]:
 
 #pathlis = []
 
 
-# In[81]:
+# In[88]:
 
 #for rdz in lisrgc:
 #    if 'http://imgur.com/' in rdz.url:
@@ -655,17 +760,17 @@ os.chdir(rmgzdays)
             #    imzdata = requests.get(imgurl)
 
 
-# In[82]:
+# In[89]:
 
 #pathlis
 
 
-# In[83]:
+# In[90]:
 
 #noalis = []
 
 
-# In[84]:
+# In[91]:
 
 #for pathl in pathlis:
 #    if 'a/' in pathl:
@@ -674,7 +779,7 @@ os.chdir(rmgzdays)
 #        noalis.append(pathl)
 
 
-# In[85]:
+# In[92]:
 
 #if 'a/' in pathlis:
 #    print 'a found'
@@ -682,19 +787,19 @@ os.chdir(rmgzdays)
 #    noalis.append(pathlis)
 
 
-# In[86]:
+# In[93]:
 
 #for noaz in noalis:
 #    print noaz
     #itgar = client.gallery_item()
 
 
-# In[87]:
+# In[94]:
 
 #linklis
 
 
-# In[88]:
+# In[95]:
 
 #if '.jpg' in linklis:
 #    print 'yes'
@@ -702,7 +807,7 @@ os.chdir(rmgzdays)
 #    print 'no'
 
 
-# In[89]:
+# In[96]:
 
 #panz()
 for rdz in lisrgc:
@@ -718,27 +823,27 @@ for rdz in lisrgc:
             del response
 
 
-# In[90]:
+# In[97]:
 
 apsize = []
 
 
-# In[91]:
+# In[98]:
 
 aptype = []
 
 
-# In[92]:
+# In[99]:
 
 basewidth = 600
 
 
-# In[93]:
+# In[100]:
 
 imgdict = dict()
 
 
-# In[94]:
+# In[101]:
 
 for rmglis in os.listdir(rmgzdays):
     #print rmglis
@@ -751,7 +856,7 @@ for rmglis in os.listdir(rmgzdays):
     aptype.append(rmglis)
 
 
-# In[95]:
+# In[102]:
 
 #for imdva in imgdict.values():
     #print imdva
@@ -766,7 +871,7 @@ for rmglis in os.listdir(rmgzdays):
             # Needs to update imgdict.values with this new number. Must halve height also.
 
 
-# In[96]:
+# In[103]:
 
 #basewidth = 300
 #img = Image.open('somepic.jpg')
@@ -776,7 +881,7 @@ for rmglis in os.listdir(rmgzdays):
 #img.save('sompic.jpg')
 
 
-# In[97]:
+# In[104]:
 
 #os.chdir(metzdays)
 
@@ -786,7 +891,7 @@ for rmglis in os.listdir(rmgzdays):
 
 
 
-# In[98]:
+# In[105]:
 
 #for numz in apsize:
 #    print numz[0]
@@ -796,44 +901,58 @@ for rmglis in os.listdir(rmgzdays):
 #        print ('less than 800!')
 
 
-# In[99]:
+# In[106]:
 
 reliz = []
 
 
-# In[100]:
+# In[107]:
 
 for refls in os.listdir(rmgzdays):
     #print rmgzdays + refls
     reliz.append(iwcpath + '/' + refls)
 
 
-# In[101]:
+# In[108]:
 
-reliz
-
-
-# In[102]:
-
-aptype
+len(reliz)
 
 
-# In[103]:
+# Tweet each reference img in list, removing the item when it's tweeted so that same item isn't tweeted twice. 
+# Make new list of items to tweet, appending in new items when site is updated
+
+# In[109]:
+
+for apt in aptype:
+    print (apt)
+
+
+# In[ ]:
+
+
+
+
+# In[ ]:
+
+
+
+
+# In[110]:
 
 #opad = open('/home/wcmckee/ad.html', 'r')
 
 
-# In[104]:
+# In[111]:
 
 #opred = opad.read()
 
 
-# In[105]:
+# In[112]:
 
 #str2 = opred.replace("\n", "")
 
 
-# In[106]:
+# In[113]:
 
 #str2
 
@@ -843,7 +962,7 @@ aptype
 
 
 
-# In[107]:
+# In[114]:
 
 doc = dominate.document(title='GetsDrawn')
 
@@ -893,7 +1012,7 @@ with doc:
 #print doc
 
 
-# In[108]:
+# In[115]:
 
 docre = doc.render()
 #s = docre.decode('ascii', 'ignore')
@@ -904,7 +1023,7 @@ mkind.write(yourstring)
 mkind.close()
 
 
-# In[109]:
+# In[116]:
 
 mkind = open(indfil, 'w')
 mkind.write(yourstring)
@@ -944,7 +1063,12 @@ mkind.close()
 #os.system('scp -r /home/wcmckee/getsdrawndotcom/style.css wcmckee@getsdrawn.com:/home/wcmckee/getsdrawndotcom/style.css')
 
 
-# In[553]:
+# In[118]:
+
+my_bot.send_tweet(twez)
+
+
+# In[ ]:
 
 
 
