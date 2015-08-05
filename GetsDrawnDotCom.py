@@ -1,11 +1,7 @@
-# -*- coding: utf-8 -*-
-# <nbformat>3.0</nbformat>
 
-# <markdowncell>
+# coding: utf-8
 
 # <h1>GetsDrawn DotCom</h1>
-
-# <markdowncell>
 
 # This is a python script to generate the website GetsDrawn. It takes data from /r/RedditGetsDrawn and makes something awesome.
 # 
@@ -80,8 +76,9 @@
 # Filter images with tags
 # 
 # 
+# 
 
-# <codecell>
+# In[2]:
 
 import os 
 import requests
@@ -102,54 +99,85 @@ from PIL import Image
 from pprint import pprint
 #import pyttsx
 import shutil
+import getpass
 
-# <codecell>
 
-gtsdrndir = ('/home/wcmckee/getsdrawndotcom/')
+# In[3]:
 
-# <codecell>
+hosnam = getpass.getuser()
+
+
+# In[4]:
+
+gtsdrndir = ('/home/' + hosnam + '/getsdrawndotcom/')
+
+
+# In[5]:
+
+gtsdrndir
+
+
+# In[8]:
+
+if os.path.isdir(gtsdrndir) == True:
+    print ('its true')
+else:
+    print ('its false')
+    os.mkdir(gtsdrndir)
+
+
+# In[9]:
 
 os.chdir(gtsdrndir)
 
-# <codecell>
+
+# In[10]:
 
 r = praw.Reddit(user_agent='getsdrawndotcom')
 
-# <codecell>
+
+# In[11]:
 
 #getmin = r.get_redditor('itwillbemine')
 
-# <codecell>
+
+# In[12]:
 
 #mincom = getmin.get_comments()
 
-# <codecell>
+
+# In[13]:
 
 #engine = pyttsx.init()
 
 #engine.say('The quick brown fox jumped over the lazy dog.')
 #engine.runAndWait()
 
-# <codecell>
+
+# In[14]:
 
 #shtweet = []
 
-# <codecell>
+
+# In[15]:
 
 #for mi in mincom:
 #    print mi
 #    shtweet.append(mi)
 
-# <codecell>
+
+# In[16]:
 
 bodycom = []
 bodyicv = dict()
 
-# <codecell>
+
+# In[17]:
 
 #beginz = pyttsx.init()
 
-# <codecell>
+
+# In[18]:
 
 #for shtz in shtweet:
 #    print shtz.downs
@@ -163,46 +191,70 @@ bodyicv = dict()
 #    bodycom.append(shtz.body)
     #bodyic
 
-# <codecell>
+
+# In[19]:
 
 #bodycom 
 
-# <codecell>
+
+# In[20]:
 
 getnewr = r.get_subreddit('redditgetsdrawn')
 
-# <codecell>
+
+# In[21]:
 
 rdnew = getnewr.get_new()
 
-# <codecell>
+
+# In[22]:
 
 lisrgc = []
 lisauth = []
 
-# <codecell>
+
+# In[23]:
 
 for uz in rdnew:
     #print uz
     lisrgc.append(uz)
 
-# <codecell>
+
+# In[24]:
 
 gtdrndic = dict()
 
-# <codecell>
 
-imgdir = ('/home/wcmckee/getsdrawndotcom/imgs')
+# In[25]:
 
-# <codecell>
+imgdir = (gtsdrndir + 'imgs')
+
+
+# In[26]:
+
+imgdir
+
+
+# In[29]:
+
+if os.path.isdir(imgdir) == True:
+    print ('its true')
+else:
+    print ('its false')
+    os.mkdir(imgdir)
+
+
+# In[30]:
 
 artlist = os.listdir(imgdir)
 
-# <codecell>
+
+# In[32]:
 
 from time import time
 
-# <codecell>
+
+# In[33]:
 
 yearz = strftime("%y", gmtime())
 monthz = strftime("%m", gmtime())
@@ -211,45 +263,56 @@ dayz = strftime("%d", gmtime())
 
 #strftime("%y %m %d", gmtime())
 
-# <codecell>
 
-imgzdir = ('imgs/')
-yrzpat = (imgzdir + yearz)
+# In[34]:
+
+yrzpat = (imgdir + '/' + yearz)
 monzpath = (yrzpat + '/' + monthz)
 dayzpath = (monzpath + '/' + dayz)
 rmgzdays = (dayzpath + '/reference')
 imgzdays = (dayzpath + '/art')
 metzdays = (dayzpath + '/meta')
 
-repathz = ('imgs/' + yearz + '/' + monthz + '/' + dayz + '/')
+repathz = (imgdir + '/' + yearz + '/' + monthz + '/' + dayz + '/')
 
-# <codecell>
+
+# In[35]:
 
 repathz
 
-# <codecell>
+
+# In[36]:
+
+dayzpath
+
+
+# In[37]:
 
 imgzdays
 
-# <codecell>
+
+# In[38]:
 
 repathz
 
-# <codecell>
+
+# In[40]:
 
 def ospacheck():
-    if os.path.isdir(imgzdir + yearz) == True:
-        print 'its true'
+    if os.path.isdir(imgdir + yearz) == True:
+        print ('its true')
     else:
-        print 'its false'
-        os.mkdir(imgzdir + yearz)
+        print ('its false')
+        os.mkdir(imgdir + yearz)
     
 
-# <codecell>
+
+# In[41]:
 
 ospacheck()
 
-# <codecell>
+
+# In[42]:
 
 #if os.path.isdir(imgzdir + yearz) == True:
 #    print 'its true'
@@ -257,15 +320,11 @@ ospacheck()
 #    print 'its false'
 #    os.mkdir(imgzdir + yearz)
 
-# <codecell>
+
+# In[43]:
 
 lizmon = ['monzpath', 'dayzpath', 'imgzdays', 'rmgzdays', 'metzdays']
 
-# <codecell>
-
-os.chdir('/home/wcmckee/getsdrawndotcom/imgs/')
-
-# <markdowncell>
 
 # Something is wrong with the script and it's no longer creating these dir in the correct folder. How did this break?
 # Fixed that but problems with it
@@ -276,41 +335,69 @@ os.chdir('/home/wcmckee/getsdrawndotcom/imgs/')
 # else 
 #  print its false, and make the dir
 
-# <codecell>
+# In[45]:
 
 if os.path.isdir(monzpath) == True:
-    print 'its true'
+    print ('its true')
 else:
-    print 'its false'
+    print ('its false')
     #os.mkdir('/home/wcmckee/getsdrawndotcom/' + monzpath)
 
-# <codecell>
-print dayzpath
-#if os.path.isdir(dayzpath) == True:
-#    print 'its true'
-#else:
-#    print 'its false'
-#    os.mkdir(dayzpath)
+
+# In[46]:
 
 if os.path.isdir(imgzdays) == True:
-    print 'its true'
+    print ('its true')
 else:
-    print 'its false'
+    print ('its false')
     os.mkdir(imgzdays)
     
 if os.path.isdir(rmgzdays) == True:
-    print 'its true'
+    print ('its true')
 else:
-    print 'its false'
+    print ('its false')
     os.mkdir(rmgzdays)
     
 if os.path.isdir(metzdays) == True:
-    print 'its true'
+    print ('its true')
 else:
-    print 'its false'
+    print ('its false')
     os.mkdir(metzdays)
+    
+if os.path.isdir(dayzpath) == True:
+    print ('its true')
+else:
+    print ('its false')
+    os.mkdir(dayzpath)
 
-# <codecell>
+
+# Need to fix dir to just have /imgs/15/02/reference/imgnam-reference.jpg
+
+# In[47]:
+
+monzpath
+
+
+# In[48]:
+
+iwcpath = 'imgs/' + yearz + '/' + monthz + '/' + dayz + '/reference'
+
+#monzpath = (yrzpat + '/' + monthz)
+#dayzpath = (monzpath + '/' + dayz)
+#rmgzdays = (dayzpath + '/reference')
+
+
+# In[49]:
+
+iwcpath
+
+
+# In[50]:
+
+iwcpath
+
+
+# In[51]:
 
 #for liz in lizmon:
 #    if os.path.isdir(liz) == True:
@@ -319,42 +406,48 @@ else:
 #        print 'its false'
 #        os.mkdir(liz)
 
-# <codecell>
+
+# In[52]:
 
 fullhom = ('/home/wcmckee/getsdrawndotcom/')
 
-# <codecell>
+
+# In[53]:
 
 #artlist
 
-# <codecell>
+
+# In[54]:
 
 httpad = ('http://getsdrawn.com/imgs')
 
-# <codecell>
+
+# In[55]:
 
 #im = Image.new("RGB", (512, 512), "white")
 #im.save(file + ".thumbnail", "JPEG")
 
-# <codecell>
+
+# In[56]:
 
 rmgzdays = (dayzpath + '/reference')
 imgzdays = (dayzpath + '/art')
 metzdays = (dayzpath + '/meta')
 
-# <codecell>
+
+# In[57]:
 
 os.chdir(metzdays)
 
-# <codecell>
+
+# In[58]:
 
 metadict = dict()
 
-# <markdowncell>
 
 # if i save the data to the file how am i going to get it to update as the post is archieved. Such as up and down votes. 
 
-# <codecell>
+# In[59]:
 
 for lisz in lisrgc:
     metadict.update({'up': lisz.ups})
@@ -367,11 +460,11 @@ for lisz in lisrgc:
     #print lisz.created
     #print lisz.comments
 
-# <codecell>
+
+# In[60]:
 
 metadict
 
-# <markdowncell>
 
 # Need to save json object.
 # 
@@ -379,7 +472,7 @@ metadict
 # 
 # Cycle through lisr and append to dict/concert to json, and also cycle through lisr.author meta folders saving the json that was created. 
 
-# <codecell>
+# In[61]:
 
 for lisr in lisrgc:
     gtdrndic.update({'title': lisr.title})
@@ -396,23 +489,23 @@ for lisr in lisrgc:
             #    metadict.update({'created': lisz.created})
             f.write(rstrin)
 
-# <codecell>
+
+# In[62]:
 
 #matdict
 
-# <markdowncell>
 
 # I have it creating a meta folder and creating/writing username.meta files. It wrote 'test' in each folder, but now it writes the photo author title of post.. the username/image data. It should be writing more than author title - maybe upvotes/downvotes, subreddit, time published etc.
+# 
 
-# <codecell>
+# In[63]:
 
 #os.listdir(dayzpath)
 
-# <markdowncell>
 
 # Instead of creating these white images, why not download the art replies of the reference photo.
 
-# <codecell>
+# In[64]:
 
 #for lisa in lisauth:
 #    #print lisa + '-line.png'
@@ -427,58 +520,65 @@ for lisr in lisrgc:
 
     #print lisa + '-colour.png'
 
-# <codecell>
+
+# In[65]:
 
 os.listdir('/home/wcmckee/getsdrawndotcom/imgs')
 
-# <codecell>
+
+# In[66]:
 
 #lisauth
 
-# <markdowncell>
 
 # I want to save the list of usernames that submit images as png files in a dir. 
 # Currently when I call the list of authors it returns Redditor(user_name='theusername'). I want to return 'theusername'.
 # Once this is resolved I can add '-line.png' '-bw.png' '-colour.png' to each folder. 
 
-# <codecell>
+# In[67]:
 
 #lisr.author
 
-# <codecell>
+
+# In[68]:
 
 namlis = []
 
-# <codecell>
 
-opsinz = open('/home/wcmckee/visignsys/index.meta', 'r')
-panz = opsinz.read()
+# In[69]:
 
-# <codecell>
+#opsinz = open('/home/wcmckee/visignsys/index.meta', 'r')
+#panz = opsinz.read()
+
+
+# In[70]:
 
 os.chdir(rmgzdays)
 
-# <markdowncell>
 
 # Filter the non jpeg/png links. Need to perform request or imgur api to get the jpeg/png files from the link. Hey maybe bs4?
 
-# <codecell>
+# In[ ]:
 
 
-# <codecell>
 
-from imgurpython import ImgurClient
 
-# <codecell>
+# In[71]:
 
-opps = open('/home/wcmckee/ps.txt', 'r')
-opzs = open('/home/wcmckee/ps2.txt', 'r')
-oprd = opps.read()
-opzrd = opzs.read()
+#from imgurpython import ImgurClient
 
-# <codecell>
 
-client = ImgurClient(oprd, opzrd)
+# In[72]:
+
+#opps = open('/home/wcmckee/ps.txt', 'r')
+#opzs = open('/home/wcmckee/ps2.txt', 'r')
+#oprd = opps.read()
+#opzrd = opzs.read()
+
+
+# In[73]:
+
+#client = ImgurClient(oprd, opzrd)
 
 # Example request
 #items = client.gallery()
@@ -488,31 +588,36 @@ client = ImgurClient(oprd, opzrd)
 
 #itz = client.get_album_images()
 
-# <codecell>
 
-galim = client.get_image('SBaV275')
+# In[74]:
 
-# <codecell>
+#galim = client.get_image('SBaV275')
 
-galim.size
 
-# <codecell>
+# In[75]:
 
-gelim = client.get_album_images('LTDJ9')
+#galim.size
 
-# <codecell>
 
-gelim
+# In[76]:
 
-# <codecell>
+#gelim = client.get_album_images('LTDJ9')
 
-from urlparse import urlparse
 
-# <codecell>
+# In[77]:
 
-linklis = []
+#gelim
 
-# <markdowncell>
+
+# In[78]:
+
+#from urlparse import urlparse
+
+
+# In[79]:
+
+#linklis = []
+
 
 # I need to get the image ids from each url. Strip the http://imgur.com/ from the string. The gallery id is the random characters after. if it's an album a is added. if multi imgs then , is used to seprate. 
 # 
@@ -520,18 +625,19 @@ linklis = []
 # 
 # Having problems with mixed /a/etwet and wetfwet urls. Using .strip('/') to remove forward slash in front of path. 
 
-# <codecell>
+# In[80]:
 
-pathlis = []
+#pathlis = []
 
-# <codecell>
 
-for rdz in lisrgc:
-    if 'http://imgur.com/' in rdz.url:
-        print rdz.url
-        parsed = urlparse(rdz.url)
-        print parsed.path.strip('/')
-        pathlis.append(parsed.path.strip('/'))
+# In[81]:
+
+#for rdz in lisrgc:
+#    if 'http://imgur.com/' in rdz.url:
+#        print rdz.url
+#        parsed = urlparse(rdz.url)
+##        print parsed.path.strip('/')
+ #       pathlis.append(parsed.path.strip('/'))
         #for pared in parsed.path:
         #    print pared.strip('/')
         #itgar = client.gallery_item(parsed.path.strip('/'))
@@ -548,47 +654,55 @@ for rdz in lisrgc:
             #try:
             #    imzdata = requests.get(imgurl)
 
-# <codecell>
 
-pathlis
+# In[82]:
 
-# <codecell>
+#pathlis
 
-noalis = []
 
-# <codecell>
+# In[83]:
 
-for pathl in pathlis:
-    if 'a/' in pathl:
-        print 'a found'
-    else:
-        noalis.append(pathl)
+#noalis = []
 
-# <codecell>
+
+# In[84]:
+
+#for pathl in pathlis:
+#    if 'a/' in pathl:
+#        print 'a found'
+#    else:
+#        noalis.append(pathl)
+
+
+# In[85]:
 
 #if 'a/' in pathlis:
 #    print 'a found'
 #else:
 #    noalis.append(pathlis)
 
-# <codecell>
 
-for noaz in noalis:
-    print noaz
+# In[86]:
+
+#for noaz in noalis:
+#    print noaz
     #itgar = client.gallery_item()
 
-# <codecell>
 
-linklis
+# In[87]:
 
-# <codecell>
+#linklis
 
-if '.jpg' in linklis:
-    print 'yes'
-else:
-    print 'no'
 
-# <codecell>
+# In[88]:
+
+#if '.jpg' in linklis:
+#    print 'yes'
+#else:
+#    print 'no'
+
+
+# In[89]:
 
 #panz()
 for rdz in lisrgc:
@@ -603,23 +717,28 @@ for rdz in lisrgc:
             shutil.copyfileobj(response.raw, out_file)
             del response
 
-# <codecell>
+
+# In[90]:
 
 apsize = []
 
-# <codecell>
+
+# In[91]:
 
 aptype = []
 
-# <codecell>
+
+# In[92]:
 
 basewidth = 600
 
-# <codecell>
+
+# In[93]:
 
 imgdict = dict()
 
-# <codecell>
+
+# In[94]:
 
 for rmglis in os.listdir(rmgzdays):
     #print rmglis
@@ -631,7 +750,8 @@ for rmglis in os.listdir(rmgzdays):
     apsize.append(im.size)
     aptype.append(rmglis)
 
-# <codecell>
+
+# In[95]:
 
 #for imdva in imgdict.values():
     #print imdva
@@ -645,7 +765,8 @@ for rmglis in os.listdir(rmgzdays):
             #print imgdict.values
             # Needs to update imgdict.values with this new number. Must halve height also.
 
-# <codecell>
+
+# In[96]:
 
 #basewidth = 300
 #img = Image.open('somepic.jpg')
@@ -654,14 +775,18 @@ for rmglis in os.listdir(rmgzdays):
 #img = img.resize((basewidth,hsize), PIL.Image.ANTIALIAS)
 #img.save('sompic.jpg')
 
-# <codecell>
+
+# In[97]:
 
 #os.chdir(metzdays)
 
-# <codecell>
+
+# In[ ]:
 
 
-# <codecell>
+
+
+# In[98]:
 
 #for numz in apsize:
 #    print numz[0]
@@ -670,48 +795,62 @@ for rmglis in os.listdir(rmgzdays):
 #    else:
 #        print ('less than 800!')
 
-# <codecell>
+
+# In[99]:
 
 reliz = []
 
-# <codecell>
+
+# In[100]:
 
 for refls in os.listdir(rmgzdays):
     #print rmgzdays + refls
-    reliz.append(rmgzdays + '/' + refls)
+    reliz.append(iwcpath + '/' + refls)
 
-# <codecell>
+
+# In[101]:
 
 reliz
 
-# <codecell>
+
+# In[102]:
 
 aptype
 
-# <codecell>
 
-opad = open('/home/wcmckee/ad.html', 'r')
+# In[103]:
 
-# <codecell>
+#opad = open('/home/wcmckee/ad.html', 'r')
 
-opred = opad.read()
 
-# <codecell>
+# In[104]:
 
-str2 = opred.replace("\n", "")
+#opred = opad.read()
 
-# <codecell>
 
-str2
+# In[105]:
 
-# <codecell>
+#str2 = opred.replace("\n", "")
+
+
+# In[106]:
+
+#str2
+
+
+# In[ ]:
+
+
+
+
+# In[107]:
 
 doc = dominate.document(title='GetsDrawn')
 
 with doc.head:
     link(rel='stylesheet', href='style.css')
     script(type ='text/javascript', src='script.js')
-    str(str2)
+    #str(str2)
     
     with div():
         attr(cls='header')
@@ -719,7 +858,7 @@ with doc.head:
         p(img('imgs/getsdrawn-bw.png', src='imgs/getsdrawn-bw.png'))
         #p(img('imgs/15/01/02/ReptileLover82-reference.png', src= 'imgs/15/01/02/ReptileLover82-reference.png'))
         h1('Updated ', strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime()))
-        p(panz)
+        #p(panz)
         p(bodycom)
     
     
@@ -753,37 +892,36 @@ with doc:
 
 #print doc
 
-# <codecell>
+
+# In[108]:
 
 docre = doc.render()
-
-# <codecell>
-
 #s = docre.decode('ascii', 'ignore')
-
-# <codecell>
-
 yourstring = docre.encode('ascii', 'ignore').decode('ascii')
-
-# <codecell>
-
 indfil = ('/home/wcmckee/getsdrawndotcom/index.html')
+mkind = open(indfil, 'w')
+mkind.write(yourstring)
+mkind.close()
 
-# <codecell>
+
+# In[109]:
 
 mkind = open(indfil, 'w')
 mkind.write(yourstring)
 mkind.close()
 
-# <codecell>
+
+# In[110]:
 
 #os.system('scp -r /home/wcmckee/getsdrawndotcom/ wcmckee@getsdrawn.com:/home/wcmckee/getsdrawndotcom')
 
-# <codecell>
+
+# In[111]:
 
 #rsync -azP source destination
 
-# <codecell>
+
+# In[112]:
 
 #updatehtm = raw_input('Update index? Y/n')
 #updateref = raw_input('Update reference? Y/n')
@@ -795,26 +933,38 @@ mkind.close()
 #if 'y' or '' in updateref:
 #    os.system('rsync -azP /home/wcmckee/getsdrawndotcom/ wcmckee@getsdrawn.com:/home/wcmckee/getsdrawndotcom/')
 
-# <codecell>
 
-os.system('scp -r /home/wcmckee/getsdrawndotcom/index.html wcmckee@getsdrawn.com:/home/wcmckee/getsdrawndotcom/index.html')
+# In[113]:
 
-# <codecell>
+#os.system('scp -r /home/wcmckee/getsdrawndotcom/index.html wcmckee@getsdrawn.com:/home/wcmckee/getsdrawndotcom/index.html')
+
+
+# In[105]:
 
 #os.system('scp -r /home/wcmckee/getsdrawndotcom/style.css wcmckee@getsdrawn.com:/home/wcmckee/getsdrawndotcom/style.css')
 
-# <codecell>
+
+# In[553]:
 
 
-# <codecell>
 
 
-# <codecell>
+# In[321]:
 
 
-# <codecell>
 
 
-# <codecell>
+# In[138]:
+
+
+
+
+# In[138]:
+
+
+
+
+# In[ ]:
+
 
 
