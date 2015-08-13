@@ -5,7 +5,7 @@
 # 
 # Create GetsDrawn post of images
 
-# In[231]:
+# In[2]:
 
 import requests
 import bs4
@@ -17,25 +17,25 @@ import os
 import ntpath
 
 
-# In[208]:
+# In[3]:
 
 r = praw.Reddit(user_agent='getsdrawndotcom')
 
 
-# In[209]:
+# In[4]:
 
 rsubred = r.get_subreddit('redditgetsdrawn')
 
 
-# In[210]:
+# In[5]:
 
 rsunewq = rsubred.get_new()
 
 
-# In[211]:
+# In[6]:
 
-for rsubcom in rsubred.get_comments():
-    print (rsubcom)
+#for rsubcom in rsubred.get_comments():
+#    print (rsubcom)
     #if (rsubcom.author) != 'ItWillBeMine':
     #    print (rsubcom)
     #    print (rsubcom.author)
@@ -45,58 +45,123 @@ for rsubcom in rsubred.get_comments():
     #print (rsubcom.author)
 
 
-# In[212]:
+# In[7]:
 
 arnowz = arrow.now()
 
 
-# In[213]:
+# In[8]:
 
 ardat = arnowz.date()
 
 
-# In[214]:
+# In[9]:
 
 str(ardat)
 
 
-# In[215]:
+# In[10]:
 
 artim = arnowz.time()
 
 
-# In[216]:
+# In[11]:
 
-#regetd = requests.get('http://getsdrawn.com')
-
-
-# In[217]:
-
-requgetdrn = open('/home/wcmckee/getsdrawndotcom/index.html', 'r')
+regetd = requests.get('http://getsdrawn.com')
 
 
-# In[218]:
+# In[12]:
 
-bst = bs4.BeautifulSoup(requgetdrn.read())
-
-
-# In[219]:
-
-requgetdrn.close()
+#requgetdrn = open('/home/wcmckee/getsdrawndotcom/index.html', 'r')
 
 
-# In[220]:
+# In[13]:
+
+bst = bs4.BeautifulSoup(regetd.text)
+
+
+# In[49]:
+
+bst
+
+
+# In[14]:
+
+#requgetdrn.close()
+
+
+# In[ ]:
 
 bst.find('a')
 
 
-# In[221]:
+# In[21]:
 
 alimg = bst.find_all('a')
     #print(bs)
 
 
-# In[224]:
+# In[92]:
+
+alinkl = list()
+
+
+# In[93]:
+
+namref = list()
+
+
+# In[97]:
+
+import ntpath
+
+
+# In[ ]:
+
+
+
+
+# In[101]:
+
+for ali in alimg:
+    ntpa = (ntpath.basename(ali.attrs['href'][:-14]))
+    print (ntpa)
+    urlink = (ali.attrs['href'])
+    #print (ali.attrs['href'])
+    alinkl.append((ali.attrs['href']))
+    namref.append((ali.attrs['href'][:-4]))
+    
+    
+    mkmeta = open('/home/wcmckee/github/getsdrawnblog/posts/' +  ntpa + '.rst', 'w')
+    mkmeta.write('.. image:: ' + urlink)
+    mkmeta.close()
+    
+    opmeta = open('/home/wcmckee/github/getsdrawnblog/posts/' + ntpa + '.meta', 'w')
+    
+    opmeta.write((ntpa + '\n' + ntpa + '\n' + str(ardat) + ' ' + str(artim)))
+    
+    #opmeta.close()
+    
+    #print(ali.text)
+
+
+# In[ ]:
+
+ntpa = (ntpath.basename(ali.text)[:-14])
+print (ntpa)
+
+
+# In[91]:
+
+namref
+
+
+# In[ ]:
+
+
+
+
+# In[ ]:
 
 '''
 for ali in alimg:
@@ -124,11 +189,6 @@ for ali in alimg:
 
 # In[ ]:
 
-
-
-
-# In[225]:
-
 for rsunw in rsunewq:
     #print (rsunw.author)
     #print (rsunw.author)
@@ -143,17 +203,17 @@ for rsunw in rsunewq:
     opmeta.close()
 
 
-# In[228]:
+# In[15]:
 
 import os
 
 
-# In[229]:
+# In[16]:
 
 os.chdir('/home/wcmckee/github/getsdrawnblog/')
 
 
-# In[230]:
+# In[17]:
 
 os.system('nikola build')
 
