@@ -78,7 +78,7 @@
 # 
 # 
 
-# In[198]:
+# In[3]:
 
 import os 
 import requests
@@ -101,131 +101,86 @@ import shutil
 import getpass
 
 
-# In[200]:
+# In[4]:
 
 myusr = getpass.getuser()
 
 
-# In[201]:
+# In[5]:
 
 gtsdrndir = ('/home/' + myusr + '/getsdrawn/')
 
 
-# In[204]:
+# In[7]:
 
 os.chdir(gtsdrndir)
 
 
-# In[205]:
+# In[8]:
 
 r = praw.Reddit(user_agent='getsdrawndotcom')
 
 
-# In[206]:
-
-#getmin = r.get_redditor('itwillbemine')
-
-
-# In[207]:
-
-#mincom = getmin.get_comments()
-
-
-# In[208]:
-
-#engine = pyttsx.init()
-
-#engine.say('The quick brown fox jumped over the lazy dog.')
-#engine.runAndWait()
-
-
-# In[209]:
-
-#shtweet = []
-
-
-# In[210]:
-
-#for mi in mincom:
-#    print mi
-#    shtweet.append(mi)
-
-
-# In[211]:
+# In[9]:
 
 bodycom = []
 bodyicv = dict()
 
 
-# In[212]:
+# In[10]:
 
 #beginz = pyttsx.init()
 
 
-# In[213]:
-
-#for shtz in shtweet:
-#    print shtz.downs
-#    print shtz.ups
-#    print shtz.body
-#    print shtz.replies
-    #beginz.say(shtz.author)
-    #beginz.say(shtz.body)
-    #beginz.runAndWait()
-    
-#    bodycom.append(shtz.body)
-    #bodyic
-
-
-# In[214]:
+# In[11]:
 
 #bodycom 
 
 
-# In[215]:
+# In[12]:
 
 getnewr = r.get_subreddit('redditgetsdrawn')
 
 
-# In[216]:
+# In[13]:
 
 rdnew = getnewr.get_new()
 
 
-# In[217]:
+# In[14]:
 
 lisrgc = []
 lisauth = []
 
 
-# In[218]:
+# In[15]:
 
 for uz in rdnew:
     #print uz
     lisrgc.append(uz)
 
 
-# In[219]:
+# In[16]:
 
 gtdrndic = dict()
 
 
-# In[225]:
+# In[17]:
 
 imgdir = ('/home/' + myusr + '/getsdrawn/galleries/')
 
 
-# In[226]:
+# In[19]:
 
 artlist = os.listdir(imgdir)
 
 
-# In[227]:
+# In[20]:
 
 from time import time
 
 
-# In[228]:
+# In[21]:
 
 yearz = strftime("%y", gmtime())
 monthz = strftime("%m", gmtime())
@@ -236,7 +191,7 @@ dayz = strftime("%d", gmtime())
 
 
 
-# In[229]:
+# In[22]:
 
 #imgzdir = ('')
 yrzpat = (imgdir + yearz)
@@ -249,17 +204,17 @@ dayzpath = (monzpath + '/' + dayz)
 repathz = (imgdir + yearz + '/' + monthz + '/' + dayz + '/')
 
 
-# In[230]:
+# In[23]:
 
 fulyr = yearz + '-' + monthz + '-' + dayz + '-reference'
 
 
-# In[231]:
+# In[24]:
 
 dateful = yearz + '/' + monthz + '/' + dayz
 
 
-# In[233]:
+# In[25]:
 
 def ospacheck():
     if os.path.isdir(imgdir + yearz) == True:
@@ -270,12 +225,12 @@ def ospacheck():
     
 
 
-# In[234]:
+# In[26]:
 
 ospacheck()
 
 
-# In[235]:
+# In[27]:
 
 #if os.path.isdir(imgzdir + yearz) == True:
 #    print 'its true'
@@ -284,7 +239,7 @@ ospacheck()
 #    os.mkdir(imgzdir + yearz)
 
 
-# In[236]:
+# In[28]:
 
 if os.path.isdir(monzpath) == True:
     print ('its true')
@@ -295,7 +250,7 @@ else:
 #os.mkdir(monzpath)
 
 
-# In[237]:
+# In[29]:
 
 if os.path.isdir(dayzpath) == True:
     print ('its true')
@@ -306,218 +261,118 @@ else:
 #os.mkdir(dayzpath)
 
 
-# In[238]:
-
-#if os.path.isdir(imgzdays) == True:
-#    print 'its true'
-#else:
-#    print 'its false'
-#    os.mkdir(imgzdays)
-
-
-# In[239]:
-
-#if os.path.isdir(metzdays)  == True:
-#    print 'its true'
-#else:
-#    print 'its failse'
-#    os.mkdir(metzdays)
-
-
-# In[240]:
-
-#fullhom = ('/home/wcmckee/getsdrawndotcom/')
-
-
-# In[241]:
-
-#os.listdir(fullhom + metzdays)
-
-
-# In[242]:
-
-#artlist
-
-
-# In[245]:
-
-#im = Image.new("RGB", (512, 512), "white")
-#im.save(file + ".thumbnail", "JPEG")
-
-
-# In[246]:
+# In[30]:
 
 rmgzdays = (dayzpath + '/reference')
 #imgzdays = (dayzpath + '/art')
 #metzdays = (dayzpath + '/meta')
 
 
-# In[247]:
-
-#os.chdir(fullhom + metzdays)
-
-
-# In[248]:
-
-gtdrndic
-
-
-# In[249]:
-
-#for lisr in lisrgc:
-#    gtdrndic.update({'title': lisr.title})
-#    lisauth.append(str(lisr.author))
-#    for osliz in os.listdir(fullhom + metzdays):
-#        with open(str(lisr.author) + '.meta', "w") as f:
-#            rstrin = lisr.title.encode('ascii', 'ignore').decode('ascii')
-#            f.write(rstrin)
-
-
-# I have it creating a meta folder and creating/writing username.meta files. It wrote 'test' in each folder, but now it writes the photo author title of post.. the username/image data. 
-
-# In[250]:
-
-#os.listdir(dayzpath)
-
-
 # Instead of creating these white images, why not download the art replies of the reference photo.
-
-# In[251]:
-
-#for lisa in lisauth:
-#    #print lisa + '-line.png'
-#    im = Image.new("RGB", (512, 512), "white")
-#    im.save(lisa + '-line.png')
-#    im = Image.new("RGB", (512, 512), "white")
-#    im.save(lisa + '-bw.png')
-
-    #print lisa + '-bw.png'
-#    im = Image.new("RGB", (512, 512), "white")
-#    im.save(lisa + '-colour.png')
-
-    #print lisa + '-colour.png'
-
-
-# In[254]:
-
-os.listdir('/home/' + myusr + '/getsdrawn/galleries/')
-
-
-# In[255]:
-
-#lisauth
-
 
 # I want to save the list of usernames that submit images as png files in a dir. 
 # Currently when I call the list of authors it returns Redditor(user_name='theusername'). I want to return 'theusername'.
 # Once this is resolved I can add '-line.png' '-bw.png' '-colour.png' to each folder. 
 
-# In[256]:
-
-#lisr.author
-
-
-# In[257]:
+# In[122]:
 
 namlis = []
 
 
-# In[258]:
+# In[123]:
 
 #opsinz = open('/home/wcmckee/visignsys/index.meta', 'r')
 #panz = opsinz.read()
 
 
-# In[263]:
+# In[138]:
 
-#panz()
-for rdz in lisrgc:
-    (rdz.title)
-    #a(rdz.url)
-    if 'http://i.imgur.com' and '.jpg' in rdz.url:
-        #print rdz.url
-        print (rdz.url)
-        url = rdz.url
-        response = requests.get(url, stream=True)
-        with open(repathz + str(rdz.author) + '-reference.jpg', 'wb') as out_file:
-            shutil.copyfileobj(response.raw, out_file)
-            del response
+oppost = open('/home/' + myusr + '/getsdrawn/posts/' + fulyr + '.md', 'w')
 
 
-# In[264]:
-
-imgtoday = os.listdir(repathz)
-
-
-# In[265]:
-
-imgtoday
-
-
-# In[266]:
+# In[139]:
 
 galpath = ('/galleries/' + dateful + '/')
 
 
-# In[267]:
+# In[140]:
 
-galpath
+#for rdz in lisrgc:
+#    print(rdz.thumbnail)
+#    print(rdz.title)
+#    for rdcom in (rdz.comments):
+#        print (rdcom)
+#        print(rdcom.author)
+
+
+# In[143]:
+
+for rdz in lisrgc:
+    print(rdz.thumbnail)
+    print(rdz.title)
+    #print(rdz.author)
+    urlthumb = rdz.thumbnail
+    response = requests.get(urlthumb, stream=True)
+    with open(repathz + str(rdz.author) + '-reference-thumb.jpg', 'wb') as out_file:
+        shutil.copyfileobj(response.raw, out_file)
+        del response
+    #oppost.write(('!' + '[' + toda.strip('.jpg') + '](' + galpath + toda + ')\n\n' + '[' + toda.strip('-reference.jpg') + ']' + '(https://reddit.com/u/' + toda.strip('-reference.jpg') + ')' + '\n\n'))
+    #print(rdz.title + '\n![' + str(rdz.author) + '](' + galpath + str(rdz.author) + '-reference-thumb.jpg)\n\n[' + str(rdz.author) + '](https://reddit.com/u/' + str(rdz.author) + ')\n\n')
+    oppost.write(('**' + rdz.title + '**\n\n![' + str(rdz.author) + '](' + galpath + str(rdz.author) + '-reference-thumb.jpg)\n\n[' + str(rdz.author) + '](https://reddit.com/u/' + str(rdz.author) + ')\n\n'))
+    for rdcom in (rdz.comments):
+        print (rdcom)
+        print(rdcom.author)
+        oppost.write('\n\n' + str(rdcom) + '\n\n' + str(rdcom.author) + '\n\n')
+
+
+# In[144]:
+
+oppost.close()
+
+
+# In[145]:
+
+fultdaz = dayz + '/' + monthz + '/' +strftime('%Y')
+
+
+# In[146]:
+
+oppost.close()
+
+
+# In[147]:
+
+rstme = ('.. title: ' + fulyr + ' \n' + '.. slug: ' + fulyr+ ' \n' + '.. date: ' + fultdaz)
+
+
+# In[148]:
+
+opmeta = open('/home/' + myusr + '/getsdrawn/posts/' + fulyr + '.meta', 'w')
+
+
+# In[149]:
+
+opmeta.write(rstme)
+
+
+# In[150]:
+
+opmeta.close()
+
+
+# In[151]:
+
+os.chdir('/home/' + myusr + '/getsdrawn')
+
+
+# In[ ]:
+
+os.system('nikola build')
 
 
 # In[ ]:
 
 
-
-
-# In[268]:
-
-fultdaz = dayz + '/' + monthz + '/' +strftime('%Y')
-
-
-# In[278]:
-
-oppost = open('/home/' + myusr + '/getsdrawn/posts/' + fulyr + '.md', 'w')
-
-
-# In[279]:
-
-for toda in imgtoday:
-    oppost.write(('!' + '[' + toda.strip('.jpg') + '](' + galpath + toda + ')\n'))
-
-
-# In[280]:
-
-oppost.close()
-
-
-# In[281]:
-
-rstme = ('.. title: ' + fulyr + ' \n' + '.. slug: ' + fulyr+ ' \n' + '.. date: ' + fultdaz)
-
-
-# In[282]:
-
-opmeta = open('/home/' + myusr + '/getsdrawn/posts/' + fulyr + '.meta', 'w')
-
-
-# In[283]:
-
-opmeta.write(rstme)
-
-
-# In[284]:
-
-opmeta.close()
-
-
-# In[285]:
-
-os.chdir('/home/' + myusr + '/getsdrawn')
-
-
-# In[286]:
-
-os.system('nikola build')
 
 
 # In[ ]:
